@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
 /* General body styles */
 body {
   margin: 0;
@@ -112,14 +114,13 @@ body {
 
 /* Infinite slider styles */
 .slider {
-  background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  height: 100px;
-  border: 1px solid rgb(58, 58, 58);
   margin: auto;
   overflow: hidden;
   position: relative;
   width: 100%;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   &::before,
   &::after {
@@ -152,16 +153,39 @@ body {
     width: calc(250px * 14);
   }
 
+  .slide-track h1 {
+    animation: scrollBanner 30s linear infinite;
+    color: #f4f35a;
+    display: inline-block;
+    font-family: "Instrument Serif", serif;
+    font-size: 66px;
+    font-weight: 400;
+  }
+
   .slide {
     height: 100px;
     width: 250px;
   }
 }
 
-.bw-logo {
-  filter: grayscale(100%);
+.slide-track h1 .text {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+.slide-track h1 {
+  animation: scrollBanner 30s linear infinite;
+  color: #f4f35a;
+  display: inline-block;
+  font-family: "Instrument Serif", serif;
+  font-size: 66px;
+  font-weight: 400;
+}
 .slide img {
   filter: grayscale(100%);
 }

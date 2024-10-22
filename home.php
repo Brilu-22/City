@@ -24,7 +24,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 
     <header class="site-header">
         <h1>Meter Box Web App</h1>
-        <div class="smiley" id="smiley"><img src="pics/mm.svg" alt="" width="90" height="90"></div>
+        <div class="smiley" id="smiley"><img src="pics/llogo.svg" alt="" width="90" height="90"></div>
     </header>
 
     <nav class="menu" id="menu">
@@ -36,55 +36,34 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     </nav>
 
     <section class="hero">
-        <img src="pics/head.svg" alt="">
+        <img src="pics/power.svg" alt="">
     </section>
 
     <div class="slider">
         <div class="slide-track">
-    <!-- Existing logos -->
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-
-    <!-- New logos for Instagram, Twitter, Notion, and OneNote -->
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="Instagram" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="Twitter" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="Notion" class="bw-logo" />
-    </div>
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="OneNote" class="bw-logo" />
-    </div>
-
-    <!-- Repeat slides to create a continuous loop -->
-    <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" class="bw-logo" />
-    </div>
-</div>
-
+            <h1>
+                - 
+                <span class="text">BUY YOUR TOKENS</span>
+                 - 
+                <span class="text">KHANYISA YOUR HOUSE</span>
+                 - 
+                <span class="text">BUY YOUR TOKENS</span>
+                 - 
+                <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
+                 - 
+                 <span class="text">BUY YOUR TOKENS</span>
+                 - 
+                <span class="text">KHANYISA YOUR HOUSE</span>
+                 - 
+                <span class="text">BUY YOUR TOKENS</span>
+                 - 
+                <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
+                 - 
+                
+            </h1>
         </div>
+
+    </div>
 
     <section class="features">
         <div class="feature">
