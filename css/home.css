@@ -174,10 +174,10 @@ body {
 }
 
 .text {
-  font-family: "Chicle", cursive;
-  font-weight: 400;
-  font-size: 50px;
+  font-family: "Poppins", serif;
+  font-weight: 700;
   font-style: normal;
+  font-size: 50px;
 }
 
 .welcome-hero {

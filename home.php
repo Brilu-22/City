@@ -28,7 +28,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 
     <header class="site-header">
         <h1>Meter Box Web App</h1>
-        <div class="smiley" id="smiley"><img src="pics/llogo.svg" alt="" width="90" height="90"></div>
+        <div class="smiley" id="smiley"><img src="pics/k.svg" alt="" width="120" height="120"></div>
     </header>
 
     <nav class="menu" id="menu">
