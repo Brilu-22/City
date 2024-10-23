@@ -98,105 +98,92 @@ body {
 .features {
   display: flex;
   justify-content: space-around;
-  padding: 50px 0;
+  padding: 0px 0;
   background-color: #f4f4f4;
 }
 
-.feature {
+.feature-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 30%;
+  width: 45%;
+  height: 150px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature h3 {
-  margin-bottom: 10px;
-  color: aqua;
+.feature-card h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.feature-card h3,
+.feature-card p {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Add hover effect to text */
+.feature-card:hover h3 {
+  transform: scale(1.1);
+  color: #0056b3; /* Change text color on hover */
+}
+
+.feature-card:hover p {
+  transform: scale(1.05);
+  color: #333; /* Change text color on hover */
 }
 
 /* Infinite slider styles */
+/* Container for the slider */
 .slider {
-  margin: auto;
-  overflow: hidden;
-  position: relative;
   width: 100%;
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
-  &::before,
-  &::after {
-    content: "";
-    height: 70px;
-    position: absolute;
-    width: 200px;
-    z-index: 2;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-
-  &::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-  }
-
-  &::before {
-    left: 0;
-    top: 0;
-  }
-
-  .slide-track {
-    animation: scroll 20s linear infinite;
-    display: flex;
-    width: calc(250px * 14);
-  }
-
-  .slide-track h1 {
-    animation: scrollBanner 30s linear infinite;
-    color: #f4f35a;
-    display: inline-block;
-    font-family: "Instrument Serif", serif;
-    font-size: 66px;
-    font-weight: 400;
-  }
-
-  .slide {
-    height: 100px;
-    width: 250px;
-  }
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 0;
+  position: relative;
 }
 
-.slide-track h1 .text {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
-.slide-track h1 {
-  animation: scrollBanner 30s linear infinite;
-  color: #f4f35a;
-  display: inline-block;
-  font-family: "Instrument Serif", serif;
-  font-size: 66px;
-  font-weight: 400;
-}
-.slide img {
-  filter: grayscale(100%);
+/* Styling the sliding track */
+.slide-track {
+  display: flex;
+  justify-content: space-around;
+  animation: scroll 50s linear infinite; /* Scroll animation */
+  white-space: nowrap;
 }
 
+.slide-track img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Styling the text */
+.text {
+  font-size: 1.5rem;
+  padding: 0 20px;
+  color: #333;
+}
+
+/* Keyframes for sliding effect */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(calc(-250px * 7));
+    transform: translateX(-100%);
   }
+}
+
+.text {
+  font-family: "Anton", serif;
+  font-weight: 400;
+  font-size: 50px;
+  font-style: normal;
 }
 
 /* Footer styles */
