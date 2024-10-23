@@ -1,30 +1,14 @@
 <?php
-class Database {
-    // Database configuration as static properties
-    private static $servername = "localhost"; 
-    private static $username = "root";
-    private static $password = ""; 
-    private static $dbname = "meter_box_app";
+$servername = "localhost"; // Change if your database is hosted elsewhere
+$username = "root"; // Your database username
+$password = " "; // Your database password
+$dbname = "meter_box_app"; // Your database name
 
-    // Static method to connect to the database
-    public static function connect() {
-        try {
-            // Create a new PDO instance
-            $conn = new PDO("mysql:host=" . self::$servername . ";dbname=" . self::$dbname, self::$username, self::$password);
-            // Set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            // Uncomment the line below for debugging
-            // echo "Connected successfully";
-            return $conn;
-        } catch(PDOException $e) {
-            // Return the error message in case of a connection failure
-            echo "Connection failed: " . $e->getMessage();
-            return null; // Optional: return null on failure
-        }
-    }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
-// Usage
-// $dbConnection = Database::connect();
 ?>

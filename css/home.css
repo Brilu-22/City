@@ -115,9 +115,9 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card1 h3 {
-  color: #007bff;
-  margin-bottom: 15px;
+.feature-card1 img {
+  width: 50px;
+  height: 50px;
 }
 
 .feature-card1 p {
@@ -125,7 +125,7 @@ body {
   color: #555;
 }
 
-.feature-card1 h3,
+.feature-card1 img,
 .feature-card1 p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -153,9 +153,9 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card2 h3 {
-  color: #007bff;
-  margin-bottom: 15px;
+.feature-card2 img {
+  width: 50px;
+  height: 50px;
 }
 
 .feature-card2 p {
@@ -163,7 +163,7 @@ body {
   color: #555;
 }
 
-.feature-card2 h3,
+.feature-card2 img,
 .feature-card2 p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -191,9 +191,9 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card3 h3 {
-  color: #007bff;
-  margin-bottom: 15px;
+.feature-card3 img {
+  width: 50px;
+  height: 50px;
 }
 
 .feature-card3 p {
@@ -201,7 +201,7 @@ body {
   color: #555;
 }
 
-.feature-card3 h3,
+.feature-card3 img,
 .feature-card3 p {
   transition: transform 0.3s ease, color 0.3s ease;
 }

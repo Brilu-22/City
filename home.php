@@ -34,7 +34,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <nav class="menu" id="menu">
         <button id="close-btn">&times;</button>
         <a href="home.php">Home</a>
-        <a href="#">Buy Tokens</a>
+        <a href="tokens.php">Buy Tokens</a>
         <a href="#">My Account</a>
         <a href="../logout.php">Logout</a>
     </nav>
@@ -55,23 +55,32 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
                 <img src="pics/star.svg" alt="">
                 <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
                 <img src="pics/star.svg" alt="">
+                <img src="pics/star.svg" alt="">
+                <span class="text">BUY YOUR TOKENS</span>
+                <img src="pics/star.svg" alt="">
+                <span class="text">KHANYISA YOUR HOUSE</span>
+                <img src="pics/star.svg" alt="">
+                <span class="text">BUY YOUR TOKENS</span>
+                <img src="pics/star.svg" alt="">
+                <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
+                <img src="pics/star.svg" alt="">
                 <!-- Add more sliding elements as needed -->
             </h1>
         </div>
     </div>
 
     <section class="features">
-        <div class="feature-card1" id="card1">
-            <h3>Buy Tokens</h3>
-            <p>Get your electricity tokens instantly after purchase.</p>
+        <div class="feature-card1" id="card1" style="display: flex; justify-content: center; align-items: center; height: 450px;">
+            <img src="pics/buy.svg" alt="" style="width: 350px; height: auto;">
+            <!--<p>Get your electricity tokens instantly after purchase.</p>-->
         </div>
-        <div class="feature-card2" id="card2">
-            <h3>Automatic Updates</h3>
-            <p>Your meter gets updated automatically after buying tokens.</p>
+        <div class="feature-card2" id="card2" style="display: flex; justify-content: center; align-items: center; height: 450px;">
+            <img src="pics/auto.svg" alt="" style="width: 350px; height: auto;">
+            <!--<p>Your meter gets updated automatically after buying tokens.</p>-->
         </div>
-        <div class="feature-card3" id="card3">
-            <h3>Easy Management</h3>
-            <p>View your purchase history and manage your meter settings.</p>
+        <div class="feature-card3" id="card3" style="display: flex; justify-content: center; align-items: center; height: 450px;">
+            <img src="pics/easy.svg" alt="" style="width: 350px; height: auto;">
+            <!--<p>View your purchase history and manage your meter settings.</p>-->
         </div>
     </section>
 
@@ -108,36 +117,40 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
     </script>
-    <script>
-    // GSAP Hover Animation
-    document.querySelectorAll('.feature-card1 h3 p').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, { duration: 0.5, y: 0, ease: "power3.inOut", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" });
-        });
+   <script>
+    // GSAP Animations
+    // Load animation (fading in with scale and vertical movement)
+    gsap.from("#buy-img, #auto-img, #easy-img", {
+        duration: 1.5, 
+        y: 50, // Images will rise into place from below
+        scale: 0.9, 
+        opacity: 0, 
+        ease: "power3.out", 
+        stagger: 0.3
     });
-    document.querySelectorAll('.feature-card2 h3 p').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, { duration: 0.5, y: 0, ease: "power3.inOut", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" });
-        });
-    });
-    document.querySelectorAll('.feature-card3 h3 p').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, { duration: 0.5, y: 0, ease: "power3.inOut", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" });
-        });
-    });
-    </script>
 
+    // Hover animations for each image
+    document.querySelectorAll(".features img").forEach((img) => {
+        img.addEventListener("mouseenter", () => {
+            gsap.to(img, {
+                duration: 0.6, 
+                scale: 1.1,  // Slightly increase the size
+                y: -10,      // Move upwards on hover
+                ease: "power3.out",
+                boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.1)" // Add soft shadow on hover
+            });
+        });
+        
+        img.addEventListener("mouseleave", () => {
+            gsap.to(img, {
+                duration: 0.6, 
+                scale: 1,     // Reset to original size
+                y: 0,         // Move back to original position
+                ease: "power3.inOut", 
+                boxShadow: "none" // Remove shadow
+            });
+        });
+    });
+</script>
 </body>
 </html>
