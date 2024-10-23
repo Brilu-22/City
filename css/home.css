@@ -103,38 +103,116 @@ body {
   background-color: #f4f4f4;
 }
 
-.feature-card {
-  background-color: #fff;
+.feature-card1 {
+  background-image: url(../pics/card1.svg);
+  background-position: center;
+  background-size: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 45%;
-  height: 150px;
+  height: 450px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card h3 {
+.feature-card1 h3 {
   color: #007bff;
   margin-bottom: 15px;
 }
 
-.feature-card p {
+.feature-card1 p {
   font-size: 1rem;
   color: #555;
 }
 
-.feature-card h3,
-.feature-card p {
+.feature-card1 h3,
+.feature-card1 p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Add hover effect to text */
-.feature-card:hover h3 {
+.feature-card1:hover h3 {
   transform: scale(1.1);
   color: #0056b3; /* Change text color on hover */
 }
 
-.feature-card:hover p {
+.feature-card1:hover p {
+  transform: scale(1.05);
+  color: #333; /* Change text color on hover */
+}
+
+.feature-card2 {
+  background-image: url(../pics/card2.svg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 45%;
+  height: 450px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card2 h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feature-card2 p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.feature-card2 h3,
+.feature-card2 p {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Add hover effect to text */
+.feature-card2:hover h3 {
+  transform: scale(1.1);
+  color: #0056b3; /* Change text color on hover */
+}
+
+.feature-card2:hover p {
+  transform: scale(1.05);
+  color: #333; /* Change text color on hover */
+}
+
+.feature-card3 {
+  background-image: url(../pics/card3.svg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 45%;
+  height: 450px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card3 h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feature-card3 p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.feature-card3 h3,
+.feature-card3 p {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Add hover effect to text */
+.feature-card3:hover h3 {
+  transform: scale(1.1);
+  color: #0056b3; /* Change text color on hover */
+}
+
+.feature-card3:hover p {
   transform: scale(1.05);
   color: #333; /* Change text color on hover */
 }

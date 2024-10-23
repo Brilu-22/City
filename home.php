@@ -61,15 +61,15 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     </div>
 
     <section class="features">
-        <div class="feature-card" id="card1">
+        <div class="feature-card1" id="card1">
             <h3>Buy Tokens</h3>
             <p>Get your electricity tokens instantly after purchase.</p>
         </div>
-        <div class="feature-card" id="card2">
+        <div class="feature-card2" id="card2">
             <h3>Automatic Updates</h3>
             <p>Your meter gets updated automatically after buying tokens.</p>
         </div>
-        <div class="feature-card" id="card3">
+        <div class="feature-card3" id="card3">
             <h3>Easy Management</h3>
             <p>View your purchase history and manage your meter settings.</p>
         </div>
@@ -110,7 +110,25 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     </script>
     <script>
     // GSAP Hover Animation
-    document.querySelectorAll('.feature-card h3 p').forEach(card => {
+    document.querySelectorAll('.feature-card1 h3 p').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { duration: 0.5, y: 0, ease: "power3.inOut", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" });
+        });
+    });
+    document.querySelectorAll('.feature-card2 h3 p').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { duration: 0.5, y: 0, ease: "power3.inOut", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" });
+        });
+    });
+    document.querySelectorAll('.feature-card3 h3 p').forEach(card => {
         card.addEventListener('mouseenter', () => {
             gsap.to(card, { duration: 0.5, y: -15, ease: "power3.out", boxShadow: "0 12px 24px rgba(0,0,0,0.2)" });
         });
