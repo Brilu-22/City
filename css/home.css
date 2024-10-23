@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* General body styles */
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-image: url(../pics/the.svg);
+  background-position: center;
+  background-size: contain;
   font-family: Arial, sans-serif;
 }
 
@@ -162,13 +163,6 @@ body {
   height: 35px;
 }
 
-/* Styling the text */
-.text {
-  font-size: 1.5rem;
-  padding: 0 20px;
-  color: #333;
-}
-
 /* Keyframes for sliding effect */
 @keyframes scroll {
   0% {
@@ -180,10 +174,53 @@ body {
 }
 
 .text {
-  font-family: "Anton", serif;
+  font-family: "Chicle", cursive;
   font-weight: 400;
   font-size: 50px;
   font-style: normal;
+}
+
+.welcome-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  background-color: #fd0202;
+}
+
+.hero-content {
+  max-width: 600px;
+  align-content: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: #666;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.hero-btn:hover {
+  background-color: #2980b9;
+}
+
+.welcome-hero img {
+  max-width: 400px;
+  height: auto;
 }
 
 /* Footer styles */

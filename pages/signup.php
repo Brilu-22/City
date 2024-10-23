@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include '../includes/connection.php';
@@ -37,31 +36,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Link to CSS -->
     <title>Sign Up</title>
 </head>
 <body>
     <div class="container">
-        <h2>Sign Up</h2>
-        <form method="POST" action="">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <input type="submit" value="Sign Up">
-        </form>
-        <p>Already have an account? <a href="../pages/login.php">Login here</a></p>
+        <div class="signup-box">
+            <h2>Create an Account</h2>
+            <form method="POST" action="">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="../pages/login.php">Login here</a></p>
+        </div>
     </div>
 </body>
 </html>
