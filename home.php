@@ -55,6 +55,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <button id="close-btn">&times;</button>
         <a href="home.php">Home</a>
         <a href="tokens.php">Buy Tokens</a>
+        <a href="#">Offices</a>
         <a href="#">My Account</a>
         <a href="../logout.php">Logout</a>
     </nav>
