@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home2.css"> 
+    <link rel="stylesheet" href="css/homie.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <button id="close-btn">&times;</button>
         <a href="home.php">Home</a>
         <a href="tokens.php">Buy Tokens</a>
-        <a href="#">Offices</a>
+        <a href="office.php">Offices</a>
         <a href="#">My Account</a>
         <a href="../logout.php">Logout</a>
     </nav>
@@ -69,8 +69,8 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <div class="slider">
         <div class="slide-track">
             <h1>
-                <img src="pics/star.svg" alt="">
-                <span class="text">BUY YOUR TOKENS</span>
+                
+                <span class="text"> - BUY YOUR TOKENS</span>
                 <img src="pics/star.svg" alt="">
                 <span class="text">KHANYISA YOUR HOUSE</span>
                 <img src="pics/star.svg" alt="">
@@ -120,13 +120,14 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     </section>
 
     <section class="header">
-        <div class="header-content">
-            <p >We’re delighted to welcome you to Khanyisa, your go-to platform for managing your electricity needs with ease!
-                At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
-            <a href="tokens.php" class="hero-btn">Get Started</a>
-        </div>
-        <img src="" alt="Welcome Image">
-    </section>
+    <div class="header-title">
+        <h1>Khanyisa Ikhaya Lakho</h1>
+    </div>
+    <div class="header-content">
+        <p>Khanyisa is your trusted platform for effortless electricity management. With Khanyisa, you can purchase tokens, track your usage, and manage your meter settings—all in one place. Our mission is to simplify access to reliable electricity for every home, making it easier than ever to stay powered up. Experience control, convenience, and transparency with Khanyisa.</p>
+    </div>
+</section>
+
 
     <footer>
         <p>&copy; 2024 Meter Box Web App. All rights reserved.</p>
