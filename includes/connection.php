@@ -1,14 +1,25 @@
 <?php
-$servername = "localhost"; // Change if your database is hosted elsewhere
-$username = "root"; // Your database username
-$password = " "; // Your database password
-$dbname = "meter_box_app"; // Your database name
+class Database {
+    private static $host = 'localhost';
+    private static $db_name = 'meter_box_app'; // Your database name
+    private static $username = 'root'; // Your database username
+    private static $password = ''; // Your database password
+    private static $conn = null;
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    public static function connect() {
+        if (self::$conn == null) {
+            try {
+                self::$conn = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$db_name, self::$username, self::$password);
+                self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+            }
+        }
+        return self::$conn;
+    }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    public static function disconnect() {
+        self::$conn = null;
+    }
 }
 ?>

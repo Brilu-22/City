@@ -115,10 +115,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
             <a href="tokens.php" class="hero-btn">Get Started</a>
         </div>
-        <video class="welcome-video" autoplay muted loop>
-        <source src="path-to-your-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <img src="pics/Walking Animation.gif" alt="Welcome Image" width="1090px" height="1100px">
     </section>
 
     <footer>

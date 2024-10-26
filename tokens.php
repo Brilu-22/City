@@ -2,30 +2,40 @@
 include 'includes/connection.php'; // Ensure this path is correct
 session_start();
 
+// Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $meterbox_number = $_POST['meterbox_number'];
     $banking_institution = $_POST['banking_institution'];
     $amount = $_POST['amount'];
 
-    // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO purchases (meterbox_number, banking_institution, amount) VALUES (?, ?, ?)");
-    $stmt->bind_param("ssd", $meterbox_number, $banking_institution, $amount);
+    // Connect to the database using the Database class
+    $conn = Database::connect();
+    
+    if ($conn) {
+        // Prepare and bind the SQL statement
+        $stmt = $conn->prepare("INSERT INTO purchases (meterbox_number, banking_institution, amount) VALUES (?, ?, ?)");
+        $stmt->bindParam(1, $meterbox_number);
+        $stmt->bindParam(2, $banking_institution);
+        $stmt->bindParam(3, $amount, PDO::PARAM_STR);
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Generate a random 14-digit token
-        $token = generateToken();
-        
-        // Redirect to successful.php with the generated token and amount
-        header("Location: successful.php?token=$token&amount=$amount");
-        exit();
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Generate a random 14-digit token
+            $token = generateToken();
+
+            // Redirect to successful.php with the generated token and amount
+            header("Location: successful.php?token=$token&amount=$amount");
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        // Close the statement and connection
+        $stmt = null;
+        Database::disconnect();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Database connection failed.";
     }
-
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
 }
 
 // Function to generate a random 14-digit token
@@ -33,7 +43,6 @@ function generateToken() {
     // Generate a random number between 10000000000000 and 99999999999999
     return strval(mt_rand(10000000000000, 99999999999999));
 }
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +69,6 @@ $conn->close();
         <a href="../logout.php">Logout</a>
     </nav>
 
-    
     <div class="container">
         <h1>Purchase Electricity Tokens</h1>
         <form method="POST" action="">
@@ -77,7 +85,6 @@ $conn->close();
                     <option value="Nedbank">Nedbank</option>
                     <option value="FNB">FNB</option>
                     <option value="Capitec">Capitec</option>
-                    <!-- Add more banks as needed -->
                 </select>
             </div>
             <div class="form-group">
@@ -92,27 +99,24 @@ $conn->close();
             <button onclick="showModal('electronic')">Electronic Transmit</button>
         </div>
     </div>
+
     <script>
         const menu = document.getElementById('menu');
         const closeBtn = document.getElementById('close-btn');
         const smiley = document.getElementById('smiley');
 
-        // Function to show the menu
         function showMenu() {
-            menu.style.left = '0'; // Show menu
+            menu.style.left = '0';
         }
 
-        // Function to hide the menu
         function hideMenu() {
-            menu.style.left = '-250px'; // Hide menu
+            menu.style.left = '-250px';
         }
 
-        // Add event listeners
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
     </script>
 
-    <!-- Modal for Electronic Transmit -->
     <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.5); justify-content:center; align-items:center;">
         <div style="background:white; padding:20px; border-radius:8px; text-align:center;">
             <h2>Your tokens have been successfully loaded to your meter box.</h2>
