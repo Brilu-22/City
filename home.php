@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/homie.css"> 
+    <link rel="stylesheet" href="css/homee.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +91,39 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             </h1>
         </div>
     </div>
+
+    <div class="card-container">
+        <h1>STATS</h1>
+        <div class="card card--featured">
+            <h3>Featured Card</h3>
+            <p>This is a featured card. It takes up more space!</p>
+        </div>
+        <div class="card card--large">
+            <h3>Large Card</h3>
+            <p>This card is large and informative.</p>
+        </div>
+        <div class="card card--medium">
+            <h3>Medium Card</h3>
+            <p>This card is medium-sized.</p>
+        </div>
+        <div class="card card--small">
+            <h3>Small Card</h3>
+            <p>This is a small card.</p>
+        </div>
+        <div class="card card--small">
+            <h3>Another Small Card</h3>
+            <p>This is another small card.</p>
+        </div>
+        <div class="card card--large">
+            <h3>Another Large Card</h3>
+            <p>This is another large card.</p>
+        </div>
+        <div class="card card--featured2">
+            <h3>Featured Card</h3>
+            <p>This is a featured card. It takes up more space!</p>
+        </div>
+    </div>
+
 
     <section class="features">
         <div class="feature-card1" id="card1" style="display: flex; justify-content: center; align-items: center; height: 450px;">
