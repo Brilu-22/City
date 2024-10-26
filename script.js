@@ -1,87 +1,85 @@
-// Initialize Google Map with nearby office pins
+// Define the user's location and offices array globally
+const userLocation = { lat: -25.746, lng: 28.188 };
+const offices = [
+  { name: "Office 1", lat: -25.754, lng: 28.191, consultants: 3 },
+  { name: "Office 2", lat: -25.749, lng: 28.205, consultants: 5 },
+  { name: "Office 3", lat: -25.762, lng: 28.222, consultants: 2 },
+];
+
+// Define the initMap function globally
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -25.746, lng: 28.188 },
-    zoom: 12,
+    center: userLocation,
+    zoom: 13,
   });
 
-  const offices = [
-    { lat: -25.746, lng: 28.188, title: "Office 1" },
-    { lat: -25.753, lng: 28.197, title: "Office 2" },
-    // Add more office locations here
-  ];
+  // Add a marker for the user's location
+  new google.maps.Marker({
+    position: userLocation,
+    map: map,
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+    title: "Your Location",
+  });
 
-  offices.forEach((office) => {
+  // Initialize Google Maps Services
+  const distanceService = new google.maps.DistanceMatrixService();
+
+  // Loop through each office and add a marker to the map
+  offices.forEach((office, index) => {
     const marker = new google.maps.Marker({
-      position: office,
-      map,
-      title: office.title,
+      position: { lat: office.lat, lng: office.lng },
+      map: map,
+      title: office.name,
     });
+
+    // Display office details and distance information in the list
+    calculateDistances(office, index, distanceService);
   });
 }
 
-// Load walking or driving distance
-document.getElementById("walking-btn").addEventListener("click", () => {
-  calculateDistance("WALKING");
-});
+// Function to calculate walking and driving distances to each office
+function calculateDistances(office, index, distanceService) {
+  const officeList = document.getElementById("officeList");
+  const listItem = document.createElement("li");
 
-document.getElementById("driving-btn").addEventListener("click", () => {
-  calculateDistance("DRIVING");
-});
-
-function calculateDistance(mode) {
-  const service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix(
+  // Calculate walking distance
+  distanceService.getDistanceMatrix(
     {
-      origins: [{ lat: -25.746, lng: 28.188 }], // User's location
-      destinations: [{ lat: -25.753, lng: 28.197 }], // Example office
-      travelMode: mode,
+      origins: [userLocation],
+      destinations: [{ lat: office.lat, lng: office.lng }],
+      travelMode: "WALKING",
     },
     (response, status) => {
       if (status === "OK") {
-        const result = response.rows[0].elements[0];
-        document.getElementById(
-          "distance-result"
-        ).textContent = `${result.distance.text} (${result.duration.text})`;
+        const walkingDistance = response.rows[0].elements[0].distance.text;
+        const walkingDuration = response.rows[0].elements[0].duration.text;
+
+        // Calculate driving distance
+        distanceService.getDistanceMatrix(
+          {
+            origins: [userLocation],
+            destinations: [{ lat: office.lat, lng: office.lng }],
+            travelMode: "DRIVING",
+          },
+          (response, status) => {
+            if (status === "OK") {
+              const drivingDistance =
+                response.rows[0].elements[0].distance.text;
+              const drivingDuration =
+                response.rows[0].elements[0].duration.text;
+
+              // Populate list item with office info and distance data
+              listItem.innerHTML = `
+                <h3>${office.name}</h3>
+                <p>Consultants available: ${office.consultants}</p>
+                <p>Walking Distance: ${walkingDistance} (${walkingDuration})</p>
+                <p>Driving Distance: ${drivingDistance} (${drivingDuration})</p>
+              `;
+              officeList.appendChild(listItem);
+            }
+          }
+        );
       }
     }
   );
 }
-
-// Chart.js for graphing visitor and consultant metrics
-const ctx1 = document.getElementById("visitorsChart").getContext("2d");
-new Chart(ctx1, {
-  type: "bar",
-  data: {
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-    datasets: [
-      {
-        label: "Visitors",
-        data: [10, 20, 30, 40, 50],
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-});
-
-const ctx2 = document.getElementById("consultantsChart").getContext("2d");
-new Chart(ctx2, {
-  type: "line",
-  data: {
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-    datasets: [
-      {
-        label: "Available Consultants",
-        data: [2, 3, 5, 1, 4],
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-});
-
-// Load the map
-window.onload = initMap;
