@@ -53,7 +53,7 @@ function generateToken() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <title>Purchase Tokens</title>
 
-    <link rel="stylesheet" href="css/token.css">
+    <link rel="stylesheet" href="css/tokens.css">
 </head>
 <body>
 <header class="site-header">
@@ -65,6 +65,7 @@ function generateToken() {
         <button id="close-btn">&times;</button>
         <a href="home.php">Home</a>
         <a href="tokens.php">Buy Tokens</a>
+        <a href="office.php">Offices</a>  
         <a href="#">My Account</a>
         <a href="../logout.php">Logout</a>
     </nav>

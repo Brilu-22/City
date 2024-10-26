@@ -69,8 +69,8 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <div class="slider">
         <div class="slide-track">
             <h1>
-                
-                <span class="text"> - BUY YOUR TOKENS</span>
+                <img src="pics/star.svg" alt="">
+                <span class="text"> BUY YOUR TOKENS</span>
                 <img src="pics/star.svg" alt="">
                 <span class="text">KHANYISA YOUR HOUSE</span>
                 <img src="pics/star.svg" alt="">
