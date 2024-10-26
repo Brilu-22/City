@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css"> 
+    <link rel="stylesheet" href="css/home2.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +95,8 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <section class="features">
         <div class="feature-card1" id="card1" style="display: flex; justify-content: center; align-items: center; height: 450px;">
             <img src="pics/buy.svg" alt="" style="width: 350px; height: auto;">
-            <!--<p>Get your electricity tokens instantly after purchase.</p>-->
+            
+            
         </div>
         <div class="feature-card2" id="card2" style="display: flex; justify-content: center; align-items: center; height: 450px;">
             <img src="pics/auto.svg" alt="" style="width: 350px; height: auto;">
@@ -111,12 +112,20 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <section class="welcome-hero">
         <div class="hero-content">
             <h1>Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
-            <p>We’re delighted to welcome you to Khanyisa, your go-to platform for managing your electricity needs with ease!
-
-At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
+            <p class="welcome-message">We’re delighted to welcome you to Khanyisa, your go-to platform for managing your electricity needs with ease!
+                At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
             <a href="tokens.php" class="hero-btn">Get Started</a>
         </div>
-        <img src="pics/Walking Animation.gif" alt="Welcome Image" width="1090px" height="1100px">
+        <img src="pics/Walking Animation.gif" alt="Welcome Image">
+    </section>
+
+    <section class="header">
+        <div class="header-content">
+            <p >We’re delighted to welcome you to Khanyisa, your go-to platform for managing your electricity needs with ease!
+                At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
+            <a href="tokens.php" class="hero-btn">Get Started</a>
+        </div>
+        <img src="" alt="Welcome Image">
     </section>
 
     <footer>
@@ -145,6 +154,7 @@ At Khanyisa, we strive to provide you with a seamless and efficient experience. 
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
     </script>
+   
     <script>
         // GSAP Animations
         // Load animation (fading in with scale and vertical movement)

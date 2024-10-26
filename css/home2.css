@@ -226,7 +226,7 @@ body {
 .slider {
   width: 100%;
   overflow: hidden;
-  background-color: #f57e00;
+  background-color: #e75a48;
   border: 1px solid #ccc;
   padding: 10px 0;
   position: relative;
@@ -307,11 +307,63 @@ body {
 }
 
 .hero-btn:hover {
-  background-color: #2980b9;
+  background-color: #e75a48;
 }
 
 .welcome-hero img {
-  max-width: 400px;
+  max-width: 650px;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  height: 600px;
+  /*background-image: url(../pics/bacck.svg);*/
+  background-position: center;
+  background-size: cover;
+}
+
+.header-content {
+  max-width: 600px;
+  align-content: center;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  color: #000000;
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: #000000;
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e7aaa3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.hero-btn:hover {
+  background-color: #e75a48;
+}
+
+.welcome-hero img {
+  max-width: 650px;
   height: auto;
 }
 
