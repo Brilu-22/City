@@ -76,7 +76,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
                 <img src="pics/star.svg" alt="">
                 <span class="text">BUY YOUR TOKENS</span>
                 <img src="pics/star.svg" alt="">
-                <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
+                <span class="text">Khanyisa Ikhaya Lakho</span>
                 <img src="pics/star.svg" alt="">
                 <img src="pics/star.svg" alt="">
                 <span class="text">BUY YOUR TOKENS</span>
@@ -85,7 +85,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
                 <img src="pics/star.svg" alt="">
                 <span class="text">BUY YOUR TOKENS</span>
                 <img src="pics/star.svg" alt="">
-                <span class="text">KHANYISA@CITYOFTSHWANE.CO.ZA</span>
+                <span class="text">Khanyisa Ikhaya Lakho</span>
                 <img src="pics/star.svg" alt="">
                 <!-- Add more sliding elements as needed -->
             </h1>
@@ -127,7 +127,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 
     <section class="features">
         <div class="feature-card1" id="card1" style="display: flex; justify-content: center; align-items: center; height: 450px;">
-            <img src="pics/buy.svg" alt="" style="width: 350px; height: auto;">
+            <img src="pics/" alt="" style="width: 350px; height: auto;">
             
             
         </div>
