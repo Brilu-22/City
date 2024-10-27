@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header {
+  background: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+
+  align-items: center;
+  padding: 15px 20px;
+}
+
+/* Smiley sticker styles */
+.smiley {
+  margin-left: 1100px;
+  font-size: 2rem; /* Adjust size as needed */
+  cursor: pointer;
+  float: left;
+  transition: transform 0.3s;
+}
+
+.smiley:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Side menu styles */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start off-screen */
+  width: 250px;
+  height: 100%;
+  background-image: url(../pics/side.svg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease;
+  z-index: 10;
+  padding-top: 60px;
+}
+
+.menu a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.menu a:hover {
+  background-color: #e75a48;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+}
+#map {
+  height: 500px;
+  width: 60%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.consultants-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.consultant-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.consultant-card {
+  flex: 1 1 45%;
+  margin: 10px 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.consultant-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.consultant-details {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

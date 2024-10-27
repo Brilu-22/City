@@ -7,32 +7,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 
-    $conn = Database::connect();
-    if ($conn) {
-        try {
-            // Prepare the SQL statement to insert user
-            $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
+    // Database credentials
+    $servername = "localhost"; // Your server name
+    $username = "root"; // Your database username
+    $password_db = ""; // Your database password
+    $dbname = "meter_box_app"; // Your database name
 
-            // Execute the statement
-            if ($stmt->execute()) {
-                // Redirect to the login page after successful signup
-                header("Location: login.php");
-                exit();
-            } else {
-                echo "Error: Could not execute the statement.";
-            }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+    try {
+        // Create a new PDO instance
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password_db);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Prepare the SQL statement to insert user
+        $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Redirect to the login page after successful signup
+            header("Location: login.php");
+            exit();
+        } else {
+            echo "Error: Could not execute the statement.";
         }
-
-        // Close the connection
-        $conn = null;
-    } else {
-        echo "Database connection failed.";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
+
+    // Close the connection
+    $conn = null;
 }
 ?>
 

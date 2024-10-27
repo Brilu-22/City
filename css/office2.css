@@ -68,36 +68,59 @@ body {
 }
 
 #map {
-  width: 100%;
+  width: 350px;
   height: 500px;
 }
 
-.office-info {
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-}
-
-#officeList {
-  list-style-type: none;
+.office-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px 0;
+  list-style: none;
   padding: 0;
 }
 
-#officeList li {
-  background: #f7f7f7;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+.office-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 350px;
+  flex: 1 1 auto;
 }
 
-#officeList h3 {
-  margin: 0 0 5px;
+.office-list li:nth-child(odd) {
+  flex: 1 1 250px;
+}
+
+.office-list li:nth-child(even) {
+  flex: 1 1 300px;
+}
+
+.office-list li h3 {
+  margin: 0 0 10px;
+}
+
+.office-list li p {
+  margin: 5px 0;
+}
+
+.office-list li a {
+  color: black;
+  text-decoration: none;
+}
+
+.office-list li a:hover {
+  text-decoration: underline;
 }
 
 .dashboard {
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #d20000;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

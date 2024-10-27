@@ -1,7 +1,7 @@
 <?php
-
-require 'includes/connection.php'; // Assuming connection.php is in the includes directory
-
+// Start session and include database connection
+session_start();
+require 'includes/connection.php'; 
 
 // Fetch office locations and consultants from the database
 $offices = [];
@@ -11,8 +11,14 @@ $query = "SELECT departments_location.dept_name AS name, departments_location.la
           GROUP BY departments_location.dept_id";
 
 $result = mysqli_query($conn, $query);
-while ($row = mysqli_fetch_assoc($result)) {
-    $offices[] = $row;
+
+// Check if the query was successful
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $offices[] = $row;
+    }
+} else {
+    echo "Error in query: " . mysqli_error($conn); // Debugging statement
 }
 ?>
 
@@ -22,7 +28,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office Locations</title>
-    <link rel="stylesheet" href="css/office.css">
+    <link rel="stylesheet" href="css/office2.css">
 </head>
 <body>
 
@@ -70,11 +76,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     <h1>Nearby Offices and Consultants</h1>
 </div>
 
-<div id="map" style="height: 500px; width: 100%;"></div>
+<div id="map" style="height: 500px; width: 850px; margin-left: 250px;"></div>
 
 <div class="office-info">
     <h2>Available Consultants and Distance Information</h2>
-    <ul id="officeList">
+    <ul id="officeList"  class="office-list">
         <!-- Office data will populate here -->
     </ul>
 </div>
@@ -117,45 +123,48 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
 
     function calculateDistances(office, distanceService) {
-        const officeList = document.getElementById("officeList");
-        const listItem = document.createElement("li");
+    const officeList = document.getElementById("officeList");
+    const listItem = document.createElement("li");
 
-        const request = {
-            origins: [userLocation],
-            destinations: [{ lat: parseFloat(office.lat), lng: parseFloat(office.lng) }],
-            travelMode: "WALKING",
-            unitSystem: google.maps.UnitSystem.METRIC,
-        };
+    const request = {
+        origins: [userLocation],
+        destinations: [{ lat: parseFloat(office.lat), lng: parseFloat(office.lng) }],
+        travelMode: "WALKING",
+        unitSystem: google.maps.UnitSystem.METRIC,
+    };
 
-        distanceService.getDistanceMatrix(request, (response, status) => {
-            if (status === "OK") {
-                const walkingResult = response.rows[0].elements[0];
-                const walkingDistance = walkingResult.distance ? walkingResult.distance.text : "Unavailable";
-                const walkingDuration = walkingResult.duration ? walkingResult.duration.text : "Unavailable";
+    distanceService.getDistanceMatrix(request, (response, status) => {
+        if (status === "OK") {
+            const walkingResult = response.rows[0].elements[0];
+            const walkingDistance = walkingResult.distance ? walkingResult.distance.text : "Unavailable";
+            const walkingDuration = walkingResult.duration ? walkingResult.duration.text : "Unavailable";
 
-                request.travelMode = "DRIVING";
-                distanceService.getDistanceMatrix(request, (response, status) => {
-                    if (status === "OK") {
-                        const drivingResult = response.rows[0].elements[0];
-                        const drivingDistance = drivingResult.distance ? drivingResult.distance.text : "Unavailable";
-                        const drivingDuration = drivingResult.duration ? drivingResult.duration.text : "Unavailable";
+            request.travelMode = "DRIVING";
+            distanceService.getDistanceMatrix(request, (response, status) => {
+                if (status === "OK") {
+                    const drivingResult = response.rows[0].elements[0];
+                    const drivingDistance = drivingResult.distance ? drivingResult.distance.text : "Unavailable";
+                    const drivingDuration = drivingResult.duration ? drivingResult.duration.text : "Unavailable";
 
-                        listItem.innerHTML = `
+                    listItem.innerHTML = `
+                        <a href="office_detail.php?office_name=${office.name}&lat=${office.lat}&lng=${office.lng}&consultants=${office.consultants}">
                             <h3>${office.name}</h3>
                             <p>Consultants available: ${office.consultants}</p>
                             <p>Walking Distance: ${walkingDistance} (${walkingDuration})</p>
                             <p>Driving Distance: ${drivingDistance} (${drivingDuration})</p>
-                        `;
-                        officeList.appendChild(listItem);
-                    } else {
-                        console.error('Error with driving distance:', status);
-                    }
-                });
-            } else {
-                console.error('Error with walking distance:', status);
-            }
-        });
-    }
+                        </a>
+                    `;
+                    officeList.appendChild(listItem);
+                } else {
+                    console.error('Error with driving distance:', status);
+                }
+            });
+        } else {
+            console.error('Error with walking distance:', status);
+        }
+    });
+}
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGQlOjM8Q71Izd_QpFl1YVnfP9IKnpKY&callback=initMap" async defer></script>
