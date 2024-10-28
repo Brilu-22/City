@@ -106,11 +106,16 @@ if ($row_dept = $result_dept->fetch_assoc()) {
     <div id="overlay" class="overlay"></div> 
     <div class="container">
         <div id="map"></div>
+        <div class="distance-card consultant-details">
+            <h3>Distance Information</h3>
+            <p>Walking Distance: <span id="walking-distance">Loading...</span></p>
+            <p>Driving Distance: <span id="driving-distance">Loading...</span></p>
+        </div>
         <div class="consultants-container">
             <div class="consultant-images">
                 <?php foreach ($consultants as $consultant): ?>
                     <div class="consultant-card">
-                        <img src="consultant_images/<?php echo htmlspecialchars($consultant['consultant_id']); ?>.jpg" alt="Consultant Image">
+                    <img src="<?php echo htmlspecialchars($consultant['image_path']); ?>" alt="">
                         <h3><?php echo htmlspecialchars($consultant['name']); ?></h3>
                     </div>
                 <?php endforeach; ?>
