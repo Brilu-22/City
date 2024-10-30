@@ -16,12 +16,13 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/homee.css"> 
+    <link rel="stylesheet" href="css/home.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Home - Meter Box Web App</title>
     <style>
         .overlay {
@@ -95,8 +96,9 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <div class="card-container">
         <h1>STATS</h1>
         <div class="card card--featured">
-            <h3>Featured Card</h3>
-            <p>This is a featured card. It takes up more space!</p>
+        <h3>Token Purchases</h3>
+        <div id="purchaseCounter" class="counter"></div> <!-- Counter for token purchases -->
+           
         </div>
         <div class="card card--large">
             <h3>Large Card</h3>
@@ -115,30 +117,20 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             <p>This is another small card.</p>
         </div>
         <div class="card card--large">
-            <h3>Another Large Card</h3>
-            <p>This is another large card.</p>
+        <h3>Electricity Usage</h3>
+        <canvas id="usageChart" width="50" height="50"></canvas> 
         </div>
         <div class="card card--featured2">
-            <h3>Featured Card</h3>
-            <p>This is a featured card. It takes up more space!</p>
+        <h3>Monthly Savings</h3>
+        <canvas id="savingsChart"></canvas> <!-- Chart for savings stats -->
         </div>
     </div>
 
 
-    <section class="features">
-        <div class="feature-card1" id="card1" style="display: flex; justify-content: center; align-items: center; height: 450px;">
-            <img src="pics/" alt="" style="width: 350px; height: auto;">
-            
-            
+    <section class="features" style="background-color: #E75A48">
+        <div class="feature-card2"  >
         </div>
-        <div class="feature-card2" id="card2" style="display: flex; justify-content: center; align-items: center; height: 450px;">
-            <img src="pics/auto.svg" alt="" style="width: 350px; height: auto;">
-            <!--<p>Your meter gets updated automatically after buying tokens.</p>-->
-        </div>
-        <div class="feature-card3" id="card3" style="display: flex; justify-content: center; align-items: center; height: 450px;">
-            <img src="pics/easy.svg" alt="" style="width: 350px; height: auto;">
-            <!--<p>View your purchase history and manage your meter settings.</p>-->
-        </div>
+       
     </section>
 
     <!-- Hero Section with Welcome Message -->
@@ -187,6 +179,65 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         // Add event listeners
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
+    </script>
+    <script>
+        // Initialize animated counters
+        const purchaseCounter = { value: 0 };
+        gsap.to(purchaseCounter, {
+            value: 125, // Target value for the counter
+            duration: 2,
+            ease: "power1.inOut",
+            onUpdate: function() {
+                document.getElementById("purchaseCounter").textContent = Math.floor(purchaseCounter.value);
+            }
+        });
+
+        // Initialize usage chart using Chart.js
+        const ctxUsage = document.getElementById('usageChart').getContext('2d');
+        const usageChart = new Chart(ctxUsage, {
+            type: 'doughnut',
+            data: {
+                labels: ['Used', 'Remaining'],
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#FF6B6B', '#C1C1C1']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
+
+        // Initialize savings chart using Chart.js
+        const ctxSavings = document.getElementById('savingsChart').getContext('2d');
+        const savingsChart = new Chart(ctxSavings, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April'],
+                datasets: [{
+                    label: 'Monthly Savings',
+                    data: [200, 300, 250, 400],
+                    backgroundColor: '#4CAF50'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
     </script>
    
     <script>

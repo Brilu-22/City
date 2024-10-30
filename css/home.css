@@ -114,8 +114,16 @@ body {
   color: white;
 }
 
+/* New code for the cards*/
+
+.counter {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* END OF THE CODE */
+
 .card {
-  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
@@ -150,60 +158,22 @@ body {
 
 .card--featured2 {
   grid-column: span 2;
+  height: 300px;
 }
 
 /* Features section styles */
 .features {
+  background-color: red;
   display: flex;
   justify-content: space-around;
   padding: 0px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f4f4f4;
 }
 
-.feature-card1 {
-  background-image: url(../pics/card1.svg);
-  background-position: center;
-  background-size: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 45%;
-  height: 450px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card1 img {
-  width: 50px;
-  height: 50px;
-}
-
-.feature-card1 p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.feature-card1 img,
-.feature-card1 p {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/* Add hover effect to text */
-.feature-card1:hover h3 {
-  transform: scale(1.1);
-  color: #0056b3; /* Change text color on hover */
-}
-
-.feature-card1:hover p {
-  transform: scale(1.05);
-  color: #333; /* Change text color on hover */
-}
-
 .feature-card2 {
-  background-image: url(../pics/card2.svg);
-  background-position: center;
-  background-size: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: #e75a48;
   width: 45%;
   height: 450px;
   padding: 20px;
