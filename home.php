@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css"> 
+    <link rel="stylesheet" href="css/home2.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,19 +102,19 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         </div>
         <div class="card card--large">
             <h3>Large Card</h3>
-            <p>This card is large and informative.</p>
+            <canvas id="chart4" class="height-chart"></canvas>
         </div>
         <div class="card card--medium">
             <h3>Medium Card</h3>
-            <p>This card is medium-sized.</p>
+            <canvas id="chart1" class="medium-chart"></canvas>
         </div>
         <div class="card card--small">
             <h3>Small Card</h3>
-            <p>This is a small card.</p>
+            <canvas id="chart2" class="medium-chart"></canvas>
         </div>
         <div class="card card--small">
             <h3>Another Small Card</h3>
-            <p>This is another small card.</p>
+            <canvas id="chart3" class="medium-chart"></canvas>
         </div>
         <div class="card card--large">
         <h3>Electricity Usage</h3>
@@ -128,7 +128,9 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 
 
     <section class="features" style="background-color: #E75A48">
-        <div class="feature-card2"  >
+        <div class="feature-card2">
+            <h1>About Us</h1>
+            <p>We are a company that helps provide the best and more fluent home ecosystem , for you and your family. Khanyisa Ikhaya Lakho </p>
         </div>
        
     </section>
@@ -239,6 +241,90 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             }
         });
     </script>
+    <script>
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Monthly Usage',
+                data: [30, 50, 70, 60, 90, 100],
+                borderColor: '#FF8A80',
+                backgroundColor: 'rgba(255, 138, 128, 0.2)',
+                fill: true
+            }]
+        },
+        options: {
+            animations: {
+                tension: { duration: 1000, easing: 'easeInOutBounce', loop: true }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Token Purchases',
+                data: [40, 55, 75, 85, 100, 120],
+                backgroundColor: '#4BC0C0',
+                borderColor: '#4BC0C0'
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            animations: {
+                duration: 2000,
+                easing: 'easeOutElastic',
+                loop: true
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('chart3').getContext('2d');
+    new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ['Residential', 'Commercial', 'Industrial'],
+            datasets: [{
+                label: 'User Types',
+                data: [40, 30, 30],
+                backgroundColor: ['#FF8A80', '#FFCE56', '#4BC0C0']
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                animateScale: true
+            }
+        }
+    });
+
+    const ctx4 = document.getElementById('chart4').getContext('2d');
+    new Chart(ctx4, {
+        type: 'radar',
+        data: {
+            labels: ['Usage', 'Billing', 'Tokens', 'Support', 'Locations'],
+            datasets: [{
+                label: 'User Engagement',
+                data: [70, 85, 65, 60, 90],
+                backgroundColor: 'rgba(153, 102, 255, 0.3)',
+                borderColor: '#9966FF',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            scale: {
+                ticks: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+
    
     <script>
         // GSAP Animations
