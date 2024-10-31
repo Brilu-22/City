@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home2.css"> 
+    <link rel="stylesheet" href="css/home.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 182, 193, 0.7); /* Light pink color with some transparency */
+            background-color: #0000007e; /* Light pink color with some transparency */
             display: none; /* Initially hidden */
             z-index: 998; /* Ensure it’s above other elements */
         }
@@ -49,7 +49,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 
     <header class="site-header">
         
-        <div class="smiley" id="smiley"><img src="pics/k.svg" alt="" width="120" height="120"></div>
+        <div class="smiley" id="smiley"><img src="pics/Klogo.svg" alt="" width="120" height="120"></div>
     </header>
 
     <nav class="menu" id="menu">
@@ -127,7 +127,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     </div>
 
 
-    <section class="features" style="background-color: #E75A48">
+    <section class="features" style="background-color: #000000">
         <div class="feature-card2">
             <h1>About Us</h1>
             <p>We are a company that helps provide the best and more fluent home ecosystem , for you and your family. Khanyisa Ikhaya Lakho </p>

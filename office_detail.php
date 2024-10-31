@@ -36,7 +36,7 @@ if ($row_dept = $result_dept->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($office_name); ?> Details</title>
-    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/details.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,7 +91,7 @@ if ($row_dept = $result_dept->fetch_assoc()) {
 <body>
     <header class="site-header">
         
-        <div class="smiley" id="smiley"><img src="pics/k.svg" alt="" width="120" height="120"></div>
+        <div class="smiley" id="smiley"><img src="pics/Klogo.svg" alt="" width="120" height="120"></div>
     </header>
 
     <nav class="menu" id="menu">
@@ -106,11 +106,7 @@ if ($row_dept = $result_dept->fetch_assoc()) {
     <div id="overlay" class="overlay"></div> 
     <div class="container">
         <div id="map"></div>
-        <div class="distance-card consultant-details">
-            <h3>Distance Information</h3>
-            <p>Walking Distance: <span id="walking-distance">Loading...</span></p>
-            <p>Driving Distance: <span id="driving-distance">Loading...</span></p>
-        </div>
+       
         <div class="consultants-container">
             <div class="consultant-images">
                 <?php foreach ($consultants as $consultant): ?>

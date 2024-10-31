@@ -53,12 +53,12 @@ function generateToken() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <title>Purchase Tokens</title>
 
-    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/token.css">
 </head>
 <body>
 <header class="site-header">
-        <h1>Meter Box Web App</h1>
-        <div class="smiley" id="smiley"><img src="pics/k.svg" alt="" width="120" height="120"></div>
+        <h1></h1>
+        <div class="smiley" id="smiley"><img src="pics/Klogo.svg" alt="" width="120" height="120"></div>
     </header>
 
     <nav class="menu" id="menu">

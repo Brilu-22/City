@@ -37,7 +37,7 @@ body {
   left: -250px; /* Start off-screen */
   width: 250px;
   height: 100%;
-  background-image: url(../pics/side.svg);
+  background-color: black;
   background-position: center;
   background-size: cover;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -50,11 +50,11 @@ body {
   display: block;
   padding: 15px;
   text-decoration: none;
-  color: #333;
+  color: white;
 }
 
 .menu a:hover {
-  background-color: #e75a48;
+  background-color: rgb(16, 52, 13);
 }
 
 .container {

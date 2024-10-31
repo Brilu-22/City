@@ -28,12 +28,12 @@ if ($result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office Locations</title>
-    <link rel="stylesheet" href="css/office2.css">
+    <link rel="stylesheet" href="css/office.css">
 </head>
 <body>
 
 <header class="site-header">
-    <div class="smiley" id="smiley"><img src="pics/k.svg" alt="" width="120" height="120"></div>
+    <div class="smiley" id="smiley"><img src="pics/Kwlogo.svg" alt="" width="120" height="120"></div>
 </header>
 
 <nav class="menu" id="menu">
@@ -48,7 +48,7 @@ if ($result) {
 <div id="overlay" class="overlay"></div> 
 
 <section class="dashboard">
-    <h2>Dashboard</h2>
+    <h1>Our Offices</h1>
     <div class="dashboard-container">
         <div class="card">
             <h3>Total Offices</h3>
@@ -89,6 +89,29 @@ if ($result) {
     <p>&copy; 2024 Meter Box Web App. All rights reserved.</p>
 </footer>
 
+
+<script>
+        const menu = document.getElementById('menu');
+        const closeBtn = document.getElementById('close-btn');
+        const smiley = document.getElementById('smiley');
+        const overlay = document.getElementById('overlay');
+
+        // Function to show the menu and overlay
+        function showMenu() {
+            menu.style.left = '0'; // Show menu
+            overlay.style.display = 'block'; // Show overlay
+        }
+
+        // Function to hide the menu and overlay
+        function hideMenu() {
+            menu.style.left = '-250px'; // Hide menu
+            overlay.style.display = 'none'; // Hide overlay
+        }
+
+        // Add event listeners
+        smiley.addEventListener('click', showMenu);
+        closeBtn.addEventListener('click', hideMenu);
+    </script>
 <script>
     // User's current location
     const userLocation = { lat: -25.746, lng: 28.188 };
