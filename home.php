@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css"> 
+    <link rel="stylesheet" href="css/home2.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <div id="overlay" class="overlay"></div> <!-- Overlay div -->
 
     <section class="hero">
-        <img src="pics/Top.svg" alt="">
+        <img src="pics/MeterBox 2.png" alt="walk">
     </section>
 
     <div class="slider">
@@ -101,7 +101,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
            
         </div>
         <div class="card card--large">
-            <h3>Large Card</h3>
+            <h3>The Large Card</h3>
             <canvas id="chart4" class="height-chart"></canvas>
         </div>
         <div class="card card--medium">
@@ -122,29 +122,39 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         </div>
         <div class="card card--featured2">
         <h3>Monthly Savings</h3>
-        <canvas id="savingsChart"></canvas> <!-- Chart for savings stats -->
+        <canvas id="savingsChart" style="width: 100%; height: 100%;"></canvas> 
         </div>
     </div>
 
 
     <section class="features" style="background-color: #000000">
         <div class="feature-card2">
-            <h1>About Us</h1>
-            <p>We are a company that helps provide the best and more fluent home ecosystem , for you and your family. Khanyisa Ikhaya Lakho </p>
-        </div>
-       
-    </section>
-
-    <!-- Hero Section with Welcome Message -->
-    <section class="welcome-hero">
-        <div class="hero-content">
-            <h1>Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
+        <h1>Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
             <p class="welcome-message">We’re delighted to welcome you to Khanyisa, your go-to platform for managing your electricity needs with ease!
                 At Khanyisa, we strive to provide you with a seamless and efficient experience. With our user-friendly interface, you can quickly buy electricity tokens, track your purchase history, and manage your meter settings—all from the comfort of your home.</p>
             <a href="tokens.php" class="hero-btn">Get Started</a>
         </div>
-        <img src="pics/Walking Animation.gif" alt="Welcome Image">
+       
     </section>
+
+    <section class="welcome-hero">
+        <div class="hero-content">
+            <div class="set set1">
+                <img src="pics/sadc.svg" alt="">
+                <p>This is the first card with some content.</p>
+            </div>
+            <div class="set set2">
+                <img src="pics/cot.png" alt="">
+                <p>This is the second card with more content.</p>
+            </div>
+            <div class="set set3">
+                <img src="pics/coat.svg" alt="">
+                <p>This is the third card with even more content.</p>
+            </div>
+        </div>
+    </section>
+
+    
 
     <section class="header">
     <div class="header-title">
@@ -183,65 +193,76 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         closeBtn.addEventListener('click', hideMenu);
     </script>
     <script>
-        // Initialize animated counters
+    // Initialize animated counters with looping
+    function animateCounter() {
         const purchaseCounter = { value: 0 };
         gsap.to(purchaseCounter, {
-            value: 125, // Target value for the counter
+            value: 850, // Target value for the counter
             duration: 2,
             ease: "power1.inOut",
             onUpdate: function() {
                 document.getElementById("purchaseCounter").textContent = Math.floor(purchaseCounter.value);
-            }
-        });
-
-        // Initialize usage chart using Chart.js
-        const ctxUsage = document.getElementById('usageChart').getContext('2d');
-        const usageChart = new Chart(ctxUsage, {
-            type: 'doughnut',
-            data: {
-                labels: ['Used', 'Remaining'],
-                datasets: [{
-                    data: [60, 40],
-                    backgroundColor: ['#FF6B6B', '#C1C1C1']
-                }]
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                },
-                animation: {
-                    duration: 1500,
-                    easing: 'easeInOutQuart'
-                }
+            onComplete: function() {
+                animateCounter(); // Restart the animation when it completes
             }
         });
+    }
+    animateCounter();
 
-        // Initialize savings chart using Chart.js
-        const ctxSavings = document.getElementById('savingsChart').getContext('2d');
-        const savingsChart = new Chart(ctxSavings, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April'],
-                datasets: [{
-                    label: 'Monthly Savings',
-                    data: [200, 300, 250, 400],
-                    backgroundColor: '#4CAF50'
-                }]
+    // Initialize usage chart with looping animation
+    const ctxUsage = document.getElementById('usageChart').getContext('2d');
+    const usageChart = new Chart(ctxUsage, {
+        type: 'doughnut',
+        data: {
+            labels: ['Used', 'Remaining'],
+            datasets: [{
+                data: [60, 40],
+                backgroundColor: ['#FF6B6B', '#C1C1C1']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true }
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                },
-                animation: {
-                    duration: 1500,
-                    easing: 'easeInOutQuart'
-                }
+            animation: {
+                duration: 1500,
+                easing: 'easeInOutQuart',
+                loop: true // Loop the animation
             }
-        });
-    </script>
-    <script>
+        }
+    });
+
+    // Initialize savings chart with looping animation
+    // Initialize savings chart with looping animation
+const ctxSavings = document.getElementById('savingsChart').getContext('2d');
+const savingsChart = new Chart(ctxSavings, {
+    type: 'bar',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Monthly Savings',
+            data: [200, 300, 250, 400, 320, 450, 380, 420, 310, 370, 390, 430],
+            backgroundColor: '#4CAF50'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true }
+        },
+        animation: {
+            duration: 1500,
+            easing: 'easeInOutQuart',
+            loop: true 
+        }
+    }
+});
+
+       
+
+    // Chart 1 - Monthly Usage with looping animation
     const ctx1 = document.getElementById('chart1').getContext('2d');
     new Chart(ctx1, {
         type: 'line',
@@ -257,11 +278,12 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         },
         options: {
             animations: {
-                tension: { duration: 1000, easing: 'easeInOutBounce', loop: true }
+                tension: { duration: 1000, easing: 'easeInOutBounce', loop: true } 
             }
         }
     });
 
+    // Chart 2 - Token Purchases with looping animation
     const ctx2 = document.getElementById('chart2').getContext('2d');
     new Chart(ctx2, {
         type: 'bar',
@@ -279,11 +301,12 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             animations: {
                 duration: 2000,
                 easing: 'easeOutElastic',
-                loop: true
+                loop: true // Loop animation
             }
         }
     });
 
+    // Chart 3 - User Types (Pie Chart) with looping scale animation
     const ctx3 = document.getElementById('chart3').getContext('2d');
     new Chart(ctx3, {
         type: 'pie',
@@ -298,11 +321,14 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         options: {
             responsive: true,
             animation: {
-                animateScale: true
+                animateScale: true,
+                animateRotate: true,
+                loop: true // Loop animation
             }
         }
     });
 
+    // Chart 4 - User Engagement (Radar Chart) with looping animation
     const ctx4 = document.getElementById('chart4').getContext('2d');
     new Chart(ctx4, {
         type: 'radar',
@@ -318,6 +344,10 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         },
         options: {
             responsive: true,
+            animation: {
+                animateRotate: true,
+                loop: true // Loop animation
+            },
             scale: {
                 ticks: { beginAtZero: true }
             }
@@ -361,5 +391,20 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
             });
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Apply a looping animation to each .set element
+        gsap.to(".set", {
+            y: -20,
+            opacity: 0.5,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.inOut",
+            yoyo: true, // Makes the animation go back and forth
+            repeat: -1 // Infinite loop
+        });
+    });
+</script>
 </body>
 </html>

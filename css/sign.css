@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 250px;
+  margin-bottom: 130px;
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  width: 450px;
+  padding: 40px;
+  /*background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);*/
+  border-radius: 8px;
+  margin-top: 80px;
+}
+
+.form-container {
+  flex: 1;
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-gif {
+  width: 580px;
+  height: 580px;
+  margin-top: 200px;
+}
+
+header {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.logo {
+  width: 50px;
+  margin: 0;
+  font-weight: bold;
+  margin-right: 1130px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 25px;
+  margin-left: 70px;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #0c2b12;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.input-group label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #aaa;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+.input-group input:focus {
+  border-color: #333;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #106213;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #000;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  border: 1px solid #0c2b12;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #0c2b12;
+  color: white;
+}
+.footer-text {
+  text-align: center;
+  margin-top: 10px;
+}
+.footer-text a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+.footer-text a:hover {
+  color: #106213;
+}
