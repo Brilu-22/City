@@ -79,7 +79,7 @@ function generateToken() {
             margin-right: 10px;
             vertical-align: middle;
         }
-        /* Add a class for the selected bank logo */
+       
         .selected-logo {
             width: 50px; /* Resized to 50px */
             height: auto;
@@ -114,19 +114,19 @@ function generateToken() {
             <div class="select-selected">Select Bank</div>
             <div class="select-items">
                 <div data-value="Standard Bank">
-                    <img src="pics/standard.png" alt="Standard Bank">Standard Bank
+                    <img src="pics/standard.png" alt="Standard Bank" class="selected-logo">Standard Bank
                 </div>
                 <div data-value="Absa">
-                    <img src="pics/absa.png" alt="Absa">Absa
+                    <img src="pics/absa.png" alt="Absa" class="selected-logo">Absa
                 </div>
                 <div data-value="Nedbank">
-                    <img src="pics/nedbank.png" alt="Nedbank">Nedbank
+                    <img src="pics/nedbank.png" alt="Nedbank"  class="selected-logo">Nedbank
                 </div>
                 <div data-value="FNB">
-                    <img src="pics/fnb.png" alt="FNB">FNB
+                    <img src="pics/fnb.png" alt="FNB"  class="selected-logo">FNB
                 </div>
                 <div data-value="Capitec">
-                    <img src="pics/capitec.png" alt="Capitec">Capitec
+                    <img src="pics/capitec.png" alt="Capitec"  class="selected-logo">Capitec
                 </div>
             </div>
             <input type="hidden" id="banking_institution" name="banking_institution" required>
@@ -194,5 +194,27 @@ function generateToken() {
         modal.style.display = 'none';
     }
 </script>
+<script>
+        const menu = document.getElementById('menu');
+        const closeBtn = document.getElementById('close-btn');
+        const smiley = document.getElementById('smiley');
+        const overlay = document.getElementById('overlay');
+
+        // Function to show the menu and overlay
+        function showMenu() {
+            menu.style.left = '0'; // Show menu
+            overlay.style.display = 'block'; // Show overlay
+        }
+
+        // Function to hide the menu and overlay
+        function hideMenu() {
+            menu.style.left = '-250px'; // Hide menu
+            overlay.style.display = 'none'; // Hide overlay
+        }
+
+        // Add event listeners
+        smiley.addEventListener('click', showMenu);
+        closeBtn.addEventListener('click', hideMenu);
+    </script>
 </body>
 </html>

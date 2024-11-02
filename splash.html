@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/splash.css" />
+
+    <title>Khanyisa</title>
+  </head>
+  <body>
+    <div id="splash-screen">
+      <img
+        src="pics/Walking Animation.gif"
+        alt="Loading GIF"
+        style="width: 550px; height: 530px; margin-top: 250px"
+      />
+
+      <div id="counter">0%</div>
+      <!--<div id="app-name">KHANYISA</div>-->
+    </div>
+
+    <script>
+      let counter = 0;
+      const counterElement = document.getElementById("counter");
+      const splashScreen = document.getElementById("splash-screen");
+
+      const interval = setInterval(() => {
+        counter++;
+        counterElement.textContent = `${counter}%`;
+
+        // When counter reaches 100%, redirect to login page
+        if (counter === 101) {
+          clearInterval(interval);
+          window.location.href = "pages/login.php"; // Redirect to login page
+        }
+      }, 100); // Adjust speed of counter increment
+    </script>
+  </body>
+</html>
