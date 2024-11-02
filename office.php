@@ -28,7 +28,7 @@ if ($result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office Locations</title>
-    <link rel="stylesheet" href="css/office.css">
+    <link rel="stylesheet" href="css/offices.css">
 </head>
 <body>
 
@@ -51,19 +51,23 @@ if ($result) {
     <h1>Our Offices</h1>
     <div class="dashboard-container">
         <div class="card">
+            <img src="pics/coat.svg" alt="Walking Distances Icon" class="card-icon">
             <h3>Total Offices</h3>
             <p id="totalOffices"><?php echo count($offices); ?></p>
         </div>
         <div class="card">
-            <h3>Active Consultants</h3>
+            <img src="pics/cot.png" alt="Walking Distances Icon" class="card-icon">
+            <h3>Reginal Consultants</h3>
             <p id="activeConsultants">10</p>
         </div>
         <div class="card">
-            <h3>Walking Distances</h3>
+            <img src="pics/gauteng.png" alt="Walking Distances Icon" class="card-icon">
+            <h3>City Of Tshwane</h3>
             <p id="walkingDistance">10 km</p>
         </div>
         <div class="card">
-            <h3>Driving Distances</h3>
+            <img src="pics/sadc.svg" alt="Walking Distances Icon" class="card-icon">
+            <h3>Community Assistance</h3>
             <p id="drivingDistance">15 km</p>
         </div>
     </div>
@@ -76,7 +80,7 @@ if ($result) {
     <h1>Nearby Offices and Consultants</h1>
 </div>
 
-<div id="map" style="height: 500px; width: 850px; margin-left: 250px;"></div>
+<div id="map" style="height: 500px; width: 850px; margin-left: 250px; border-radius: 10px;"></div>
 
 <div class="office-info">
     <h2>Available Consultants and Distance Information</h2>
@@ -189,6 +193,22 @@ if ($result) {
 }
 
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            gsap.from(card, {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.5,
+                delay: index * 0.1, 
+                ease: "back.out(1.7)" 
+            });
+        });
+    });
+</script>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGQlOjM8Q71Izd_QpFl1YVnfP9IKnpKY&callback=initMap" async defer></script>
 </body>

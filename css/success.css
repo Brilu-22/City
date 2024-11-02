@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +7,6 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
   background-image: url(../pics/the.svg);
   background-position: center;
   background-size: cover;
@@ -13,27 +14,41 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .total {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between; /* Aligns content to the sides */
+  align-items: center; /* Center vertically */
   width: 70%;
   max-width: 800px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.2); /* Light semi-transparent color */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 30px;
   backdrop-filter: blur(10px); /* Creates the frosted glass effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-form {
+.content {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.gif-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 70px;
+}
+
+h1 {
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 57px;
+  color: #09240f;
 }
 
 .container {
@@ -64,51 +79,13 @@ form {
   flex-direction: column;
 }
 
-.input-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-label {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-input::placeholder {
-  color: #aaa;
-}
-
-button.btn {
-  background-color: #e75a48;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button.btn:hover {
-  background-color: #45a049;
-}
-
 p {
   margin-top: 20px;
-  font-size: 14px;
-  color: #777;
+  font-size: 4px;
+  color: #000000;
+  font-family: "Poppins", serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 p a {
@@ -118,4 +95,53 @@ p a {
 
 p a:hover {
   text-decoration: underline;
+}
+
+.site-header {
+  background: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 450px;
+}
+
+/* Smiley sticker styles */
+.smiley {
+  margin-left: 1100px;
+  font-size: 2rem; /* Adjust size as needed */
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.smiley:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Side menu styles */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #000000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease;
+  z-index: 10;
+  padding-top: 60px;
+}
+
+.menu a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.menu a:hover {
+  background-color: #0c2b12;
 }

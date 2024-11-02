@@ -9,7 +9,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #333;
+            color: #000000;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -21,7 +21,7 @@
 
         h1 {
             font-size: 2.5em;
-            color: #4CAF50;
+            color: #09240f;
             margin-bottom: 10px;
         }
 
@@ -31,8 +31,10 @@
         }
 
         form {
-            background: white;
+            background: transparent;
             padding: 20px;
+            display: flex;
+            justify-content: center;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
@@ -51,9 +53,9 @@
         }
 
         button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+            background-color: transparent;
+            color: #09240f;
+            border: 1px solid #09240f;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
@@ -63,7 +65,8 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #09240f;
+            color: white;
         }
 
         #modal {
@@ -80,6 +83,8 @@
 
         #modal p {
             background: white;
+            width: 400px;
+            height: auto;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -88,26 +93,58 @@
 
         #modal button {
             margin-top: 10px;
-            background-color: #f44336;
+            width: 50px;
+            height: 50px;
+            background-color: #09240f;
+            border: none;
+            border-radius: 50%; 
+            color: white;
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer;
+            transition: background-color 0.3s; 
         }
 
         #modal button:hover {
-            background-color: #e53935;
+            background-color: #0e3717; 
+        }
+
+
+        #modal button:hover {
+            background-color: #0e3717;
         }
     </style>
 </head>
 <body>
+<header class="site-header">
+    <h1></h1>
+    <div class="smiley" id="smiley"><img src="pics/Klogo.svg" alt="" width="120" height="120"></div>
+</header>
+
+<nav class="menu" id="menu">
+    <button id="close-btn">&times;</button>
+    <a href="home.php">Home</a>
+    <a href="tokens.php">Buy Tokens</a>
+    <a href="office.php">Offices</a>  
+    <a href="#">My Account</a>
+    <a href="../logout.php">Logout</a>
+</nav>
     <?php
     // Retrieve token and amount from query parameters
     $token = isset($_GET['token']) ? htmlspecialchars($_GET['token']) : 'N/A';
     $amount = isset($_GET['amount']) ? htmlspecialchars($_GET['amount']) : '0.00';
+    $meterbox_number = isset($_GET['meterbox_number']) ? htmlspecialchars($_GET['meterbox_number']) : '';
+
     ?>
 
-    <div class="total">
+<div class="total">
+    <div class="content">
         <h1>Purchase Successful</h1>
         <p>Thank you for purchasing electricity tokens.</p>
         <p>Amount Purchased: ZAR <?php echo $amount; ?></p>
-        <p>Your Token: <?php echo $token; ?></p>
+        <p>Tokens: <?php echo $token; ?></p>
 
         <form action="transmit.php" method="POST">
             <label for="transmission">Choose Transmission Method:</label>
@@ -115,19 +152,52 @@
             <input type="radio" id="electronic" name="transmission" value="electronic" required> Electronic Transmit<br>
             <button type="submit">Transmit</button>
         </form>
-        <div class="pic">
-            <img src="pics/MeterBox.png" alt="meter" style="width: 50px; height: 50px;">
-        </div>
-        
     </div>
-    
+    <div class="gif-container">
+        <img src="pics/Walking Animation.gif" alt="Loading GIF" style="width: 550px; height: 450px; margin-top: 200px;">
+    </div>
+</div>
+
 
     
 
     <div id="modal" style="display: none;">
-        <p>Your tokens have been successfully loaded to your meter box. Thank you for using Khanyisa!</p>
-        <button onclick="closeModal()">Close</button>
+        <p>Your tokens have been successfully loaded to your meter box <?php echo $meterbox_number; ?>. Thank you for using Khanyisa!</p>
+        <button onclick="closeModal()">X</button>
     </div>
+    <script>
+    function showModal(type) {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
+</script>
+<script>
+        const menu = document.getElementById('menu');
+        const closeBtn = document.getElementById('close-btn');
+        const smiley = document.getElementById('smiley');
+        const overlay = document.getElementById('overlay');
+
+        // Function to show the menu and overlay
+        function showMenu() {
+            menu.style.left = '0'; // Show menu
+            overlay.style.display = 'block'; // Show overlay
+        }
+
+        // Function to hide the menu and overlay
+        function hideMenu() {
+            menu.style.left = '-250px'; // Hide menu
+            overlay.style.display = 'none'; // Hide overlay
+        }
+
+        // Add event listeners
+        smiley.addEventListener('click', showMenu);
+        closeBtn.addEventListener('click', hideMenu);
+    </script>
     
     <script>
         // Function to show modal for electronic transmission
