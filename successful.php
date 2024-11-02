@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Successful</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Add your styles -->
+    <link rel="stylesheet" href="css/success.css"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,17 +103,26 @@
     $amount = isset($_GET['amount']) ? htmlspecialchars($_GET['amount']) : '0.00';
     ?>
 
-    <h1>Purchase Successful</h1>
-    <p>Thank you for purchasing electricity tokens.</p>
-    <p>Amount Purchased: ZAR <?php echo $amount; ?></p>
-    <p>Your Token: <?php echo $token; ?></p>
+    <div class="total">
+        <h1>Purchase Successful</h1>
+        <p>Thank you for purchasing electricity tokens.</p>
+        <p>Amount Purchased: ZAR <?php echo $amount; ?></p>
+        <p>Your Token: <?php echo $token; ?></p>
 
-    <form action="transmit.php" method="POST">
-        <label for="transmission">Choose Transmission Method:</label>
-        <input type="radio" id="manual" name="transmission" value="manual" required> Manual Transmit<br>
-        <input type="radio" id="electronic" name="transmission" value="electronic" required> Electronic Transmit<br>
-        <button type="submit">Transmit</button>
-    </form>
+        <form action="transmit.php" method="POST">
+            <label for="transmission">Choose Transmission Method:</label>
+            <input type="radio" id="manual" name="transmission" value="manual" required> Manual Transmit<br>
+            <input type="radio" id="electronic" name="transmission" value="electronic" required> Electronic Transmit<br>
+            <button type="submit">Transmit</button>
+        </form>
+        <div class="pic">
+            <img src="pics/MeterBox.png" alt="meter" style="width: 50px; height: 50px;">
+        </div>
+        
+    </div>
+    
+
+    
 
     <div id="modal" style="display: none;">
         <p>Your tokens have been successfully loaded to your meter box. Thank you for using Khanyisa!</p>

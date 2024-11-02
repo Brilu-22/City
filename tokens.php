@@ -44,7 +44,7 @@ function generateToken() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <title>Purchase Tokens</title>
-    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/token.css">
     <style>
         .custom-select {
             position: relative;
@@ -102,42 +102,55 @@ function generateToken() {
 </nav>
 
 <div class="container">
-    <h1>Purchase Electricity Tokens</h1>
+    <div class="header-container">
+        <h1>Purchase Electricity Tokens</h1>
+    </div>
     <form method="POST" action="">
-        <div class="form-group">
-            <label for="meterbox_number">Meter Box Number (11 digits):</label>
-            <input type="text" id="meterbox_number" name="meterbox_number" required pattern="\d{11}" title="Please enter an 11-digit meter box number.">
-        </div>
-
-        <div class="form-group custom-select">
-            <label for="banking_institution">Banking Institution:</label>
-            <div class="select-selected">Select Bank</div>
-            <div class="select-items">
-                <div data-value="Standard Bank">
-                    <img src="pics/standard.png" alt="Standard Bank" class="selected-logo">Standard Bank
-                </div>
-                <div data-value="Absa">
-                    <img src="pics/absa.png" alt="Absa" class="selected-logo">Absa
-                </div>
-                <div data-value="Nedbank">
-                    <img src="pics/nedbank.png" alt="Nedbank"  class="selected-logo">Nedbank
-                </div>
-                <div data-value="FNB">
-                    <img src="pics/fnb.png" alt="FNB"  class="selected-logo">FNB
-                </div>
-                <div data-value="Capitec">
-                    <img src="pics/capitec.png" alt="Capitec"  class="selected-logo">Capitec
+        <div class="form-container">
+            <!-- Left Side -->
+            <div class="form-left">
+                <div class="form-group">
+                    <label for="meterbox_number">Meter Box Number (11 digits):</label>
+                    <input type="text" id="meterbox_number" name="meterbox_number" required pattern="\d{11}" title="Please enter an 11-digit meter box number.">
                 </div>
             </div>
-            <input type="hidden" id="banking_institution" name="banking_institution" required>
-        </div>
 
-        <div class="form-group">
-            <label for="amount">Amount (ZAR):</label>
-            <input type="number" id="amount" name="amount" required min="1" step="0.01">
+            <!-- Right Side -->
+            <div class="form-right">
+                <div class="form-group custom-select">
+                    <label for="banking_institution">Banking Institution:</label>
+                    <div class="select-selected">Select Bank</div>
+                    <div class="select-items">
+                        <div data-value="Standard Bank">
+                            <img src="pics/standard.png" alt="Standard Bank" class="selected-logo">Standard Bank
+                        </div>
+                        <div data-value="Absa">
+                            <img src="pics/absa.png" alt="Absa" class="selected-logo">Absa
+                        </div>
+                        <div data-value="Nedbank">
+                            <img src="pics/nedbank.png" alt="Nedbank"  class="selected-logo">Nedbank
+                        </div>
+                        <div data-value="FNB">
+                            <img src="pics/fnb.png" alt="FNB"  class="selected-logo">FNB
+                        </div>
+                        <div data-value="Capitec">
+                            <img src="pics/capitec.png" alt="Capitec"  class="selected-logo">Capitec
+                        </div>
+                    </div>
+                    <input type="hidden" id="banking_institution" name="banking_institution" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount (ZAR):</label>
+                    <input type="number" id="amount" name="amount" required min="1" step="0.01">
+                </div>
+            </div>
         </div>
+        
         <button type="submit">Buy Now</button>
     </form>
+
+
     <div class="transmit-options">
         <h3>Transmission Options:</h3>
         <button onclick="showModal('manual')">Manual Transmit</button>
@@ -145,6 +158,10 @@ function generateToken() {
     </div>
 </div>
 
+
+<div class="gif-container">
+        <img src="pics/pull up.gif" alt="Your GIF" style="width: 550px; height: 450px;">
+    </div>
 <script>
     // Dropdown functionality
     const selected = document.querySelector('.select-selected');
