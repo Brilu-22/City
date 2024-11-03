@@ -5,117 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Successful</title>
     <link rel="stylesheet" href="css/success.css"> 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #000000;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
 
-        h1 {
-            font-size: 2.5em;
-            color: #09240f;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin: 5px 0;
-        }
-
-        form {
-            background: transparent;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            width: 300px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        button {
-            background-color: transparent;
-            color: #09240f;
-            border: 1px solid #09240f;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 1em;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #09240f;
-            color: white;
-        }
-
-        #modal {
-            display: none;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        #modal p {
-            background: white;
-            width: 400px;
-            height: auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            margin: 0;
-        }
-
-        #modal button {
-            margin-top: 10px;
-            width: 50px;
-            height: 50px;
-            background-color: #09240f;
-            border: none;
-            border-radius: 50%; 
-            color: white;
-            font-size: 16px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            cursor: pointer;
-            transition: background-color 0.3s; 
-        }
-
-        #modal button:hover {
-            background-color: #0e3717; 
-        }
-
-
-        #modal button:hover {
-            background-color: #0e3717;
-        }
-    </style>
 </head>
 <body>
 <header class="site-header">
@@ -131,52 +21,40 @@
     <a href="#">My Account</a>
     <a href="../logout.php">Logout</a>
 </nav>
+
     <?php
-    // Retrieve token and amount from query parameters
+    // Retrieve token, amount, and meter box number from query parameters
     $token = isset($_GET['token']) ? htmlspecialchars($_GET['token']) : 'N/A';
     $amount = isset($_GET['amount']) ? htmlspecialchars($_GET['amount']) : '0.00';
     $meterbox_number = isset($_GET['meterbox_number']) ? htmlspecialchars($_GET['meterbox_number']) : '';
-
     ?>
 
-<div class="total">
-    <div class="content">
-        <h1>Purchase Successful</h1>
-        <p>Thank you for purchasing electricity tokens.</p>
-        <p>Amount Purchased: ZAR <?php echo $amount; ?></p>
-        <p>Tokens: <?php echo $token; ?></p>
-
+    <div class="ticket">
+        <div class="content">
+            <h1>Purchase Successful</h1>
+            <p>Thank you for purchasing electricity tokens.</p>
+            <p>Amount Purchased: ZAR <?php echo $amount; ?></p>
+            <p>Tokens: <?php echo $token; ?></p>
+        </div>
         <form action="transmit.php" method="POST">
             <label for="transmission">Choose Transmission Method:</label>
-            <input type="radio" id="manual" name="transmission" value="manual" required> Manual Transmit<br>
-            <input type="radio" id="electronic" name="transmission" value="electronic" required> Electronic Transmit<br>
+            <div>
+                <input type="radio" id="manual" name="transmission" value="manual" required> Manual Transmit<br>
+                <input type="radio" id="electronic" name="transmission" value="electronic" required> Electronic Transmit<br>
+            </div>
             <button type="submit">Transmit</button>
         </form>
+        <div class="barcode"></div>
     </div>
     <div class="gif-container">
-        <img src="pics/Walking Animation.gif" alt="Loading GIF" style="width: 550px; height: 450px; margin-top: 200px;">
+        <img src="pics/Walking Animation.gif" alt="" style="width:550px; height: 520px;">
     </div>
-</div>
-
-
-    
 
     <div id="modal" style="display: none;">
         <p>Your tokens have been successfully loaded to your meter box <?php echo $meterbox_number; ?>. Thank you for using Khanyisa!</p>
         <button onclick="closeModal()">X</button>
     </div>
     <script>
-    function showModal(type) {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'flex';
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'none';
-    }
-</script>
-<script>
         const menu = document.getElementById('menu');
         const closeBtn = document.getElementById('close-btn');
         const smiley = document.getElementById('smiley');
@@ -198,9 +76,8 @@
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
     </script>
-    
+
     <script>
-        // Function to show modal for electronic transmission
         document.getElementById('electronic').addEventListener('change', function() {
             if (this.checked) {
                 showModal();
