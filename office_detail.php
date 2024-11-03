@@ -28,6 +28,20 @@ $result_dept = $stmt_dept->get_result();
 if ($row_dept = $result_dept->fetch_assoc()) {
     $departments_location = $row_dept; // Store department details
 }
+
+// Prepare data for chart (example data)
+$consultants_names = array_map(function($consultant) {
+    return htmlspecialchars($consultant['name']);
+}, $consultants);
+
+// Example: Random values for demonstration
+function generateRandomData($count) {
+    return array_map(function() {
+        return rand(1, 10); // Random counts between 1 and 10
+    }, range(1, $count));
+}
+
+$consultants_values = generateRandomData(count($consultants));
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +50,8 @@ if ($row_dept = $result_dept->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($office_name); ?> Details</title>
-    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -86,11 +101,18 @@ if ($row_dept = $result_dept->fetch_assoc()) {
             padding: 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        #myChart {
+            width: 800px;
+            margin-right: 600px;
+        }
+        #myChartContainer {
+            margin: -400px auto;
+            position: relative;
+        }
     </style>
 </head>
 <body>
     <header class="site-header">
-        
         <div class="smiley" id="smiley"><img src="pics/Klogo.svg" alt="" width="120" height="120"></div>
     </header>
 
@@ -103,17 +125,15 @@ if ($row_dept = $result_dept->fetch_assoc()) {
         <a href="../logout.php">Logout</a>
     </nav>
 
-    <div id="overlay" class="overlay"></div> 
+    <div id="overlay" class="overlay"></div>
     <div class="container">
         <div id="map"></div>
-
         
-       
         <div class="consultants-container">
             <div class="consultant-images">
                 <?php foreach ($consultants as $consultant): ?>
                     <div class="consultant-card">
-                    <img src="<?php echo htmlspecialchars($consultant['image_path']); ?>" alt="">
+                        <img src="<?php echo htmlspecialchars($consultant['image_path']); ?>" alt="">
                         <h3><?php echo htmlspecialchars($consultant['name']); ?></h3>
                     </div>
                 <?php endforeach; ?>
@@ -124,7 +144,6 @@ if ($row_dept = $result_dept->fetch_assoc()) {
                     <?php foreach ($consultants as $consultant): ?>
                         <li>
                             <h3><?php echo htmlspecialchars($consultant['name']); ?></h3>
-                            
                             <p>Department Address: <?php echo htmlspecialchars($departments_location['address'] ?? 'N/A'); ?></p>
                             <p>Department Name: <?php echo htmlspecialchars($departments_location['dept_name'] ?? 'N/A'); ?></p>
                         </li>
@@ -134,30 +153,29 @@ if ($row_dept = $result_dept->fetch_assoc()) {
         </div>
     </div>
 
+    <div id="myChartContainer">
+        <canvas id="myChart"></canvas>
+    </div>
+
     <script>
         const menu = document.getElementById('menu');
         const closeBtn = document.getElementById('close-btn');
         const smiley = document.getElementById('smiley');
         const overlay = document.getElementById('overlay');
 
-        // Function to show the menu and overlay
         function showMenu() {
-            menu.style.left = '0'; // Show menu
-            overlay.style.display = 'block'; // Show overlay
+            menu.style.left = '0';
+            overlay.style.display = 'block';
         }
 
-        // Function to hide the menu and overlay
         function hideMenu() {
-            menu.style.left = '-250px'; // Hide menu
-            overlay.style.display = 'none'; // Hide overlay
+            menu.style.left = '-250px';
+            overlay.style.display = 'none';
         }
 
-        // Add event listeners
         smiley.addEventListener('click', showMenu);
         closeBtn.addEventListener('click', hideMenu);
-    </script>
 
-    <script>
         const userLocation = { lat: -25.746, lng: 28.188 };
         const officeLocation = { lat: <?php echo $lat; ?>, lng: <?php echo $lng; ?> };
 
@@ -167,39 +185,23 @@ if ($row_dept = $result_dept->fetch_assoc()) {
                     lat: (userLocation.lat + officeLocation.lat) / 2,
                     lng: (userLocation.lng + officeLocation.lng) / 2,
                 },
-                zoom: 10, // Zoomed out to show both points
+                zoom: 10,
             });
 
             const userMarker = new google.maps.Marker({
                 position: userLocation,
                 map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 10,
-                    fillColor: "#00f",
-                    fillOpacity: 1,
-                    strokeColor: "#fff",
-                    strokeWeight: 2
-                },
                 title: "Your Location",
             });
 
             const officeMarker = new google.maps.Marker({
                 position: officeLocation,
                 map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 10,
-                    fillColor: "#f00",
-                    fillOpacity: 1,
-                    strokeColor: "#fff",
-                    strokeWeight: 2
-                },
                 title: "<?php echo $office_name; ?>",
             });
 
             const line = new google.maps.Polyline({
-                path: createSquigglyLine(userLocation, officeLocation, 10), // Use squiggly function from before
+                path: createSquigglyLine(userLocation, officeLocation, 10),
                 geodesic: true,
                 strokeColor: "#FF0000",
                 strokeOpacity: 1.0,
@@ -207,13 +209,13 @@ if ($row_dept = $result_dept->fetch_assoc()) {
             });
 
             line.setMap(map);
-            animateLine(line);
         }
 
         function createSquigglyLine(start, end, pointsCount) {
             const points = [];
-            const amplitude = 0.0002; // Adjust for more or less squiggle
+            const amplitude = 0.0002;
             const step = 1 / (pointsCount - 1);
+            
             for (let i = 0; i < pointsCount; i++) {
                 const t = i * step;
                 const lat = start.lat + (end.lat - start.lat) * t + (Math.random() * amplitude - amplitude / 2);
@@ -223,23 +225,55 @@ if ($row_dept = $result_dept->fetch_assoc()) {
             return points;
         }
 
-        function animateLine(line) {
-            const path = line.getPath();
-            const length = path.getLength();
-            let index = 0;
+        const ctx = document.getElementById('myChart').getContext('2d');
+        let chartData = {
+            labels: <?php echo json_encode($consultants_names); ?>,
+            datasets: [{
+                label: 'Number of Consultants',
+                data: <?php echo json_encode($consultants_values); ?>,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                tension: 0.4 // This creates a smooth line for line charts, if you use line type
+            }]
+        };
 
-            function step() {
-                const start = index % length;
-                const end = (start + 1) % length;
-                line.setPath([path.getAt(start), path.getAt(end)]);
-                index++;
-                if (index < length * 10) { // Increase the iterations for smoother animation
-                    requestAnimationFrame(step);
+        const myChart = new Chart(ctx, {
+            type: 'bar', // Change to 'line' if you prefer
+            data: chartData,
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce',
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-            requestAnimationFrame(step);
+        });
+
+        // Update chart data periodically
+        setInterval(() => {
+            const newValues = generateRandomData(chartData.labels.length);
+            myChart.data.datasets[0].data = newValues;
+            myChart.update();
+        }, 5000); // Update every 5 seconds
+
+        function generateRandomData(length) {
+            return Array.from({ length }, () => Math.floor(Math.random() * 10) + 1);
         }
+
+        function loadGoogleMaps() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBhG2hU7WMUjhOZTbO1xoxy4NZL6boK5I0&callback=initMap`;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+
+        loadGoogleMaps();
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGQlOjM8Q71Izd_QpFl1YVnfP9IKnpKY&callback=initMap" async defer></script>
 </body>
 </html>
