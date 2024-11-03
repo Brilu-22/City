@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login2.css"> 
+    <link rel="icon" href="../pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <title>Login</title>
 </head>
 <body>
@@ -72,11 +73,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
                 <p class="footer-text">Don't have an account? <a href="signup.php">Sign up here</a></p>
             </div>
-            
         </div>
     </div>
     <div class="gif-container">
         <img src="../pics/pull up.gif" alt="" class="signup-gif">
     </div>
+    
 </body>
 </html>

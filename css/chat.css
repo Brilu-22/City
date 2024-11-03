@@ -1,0 +1,130 @@
+/* chat.css */
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  max-height: 500px; /* Added a max height for better usability */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  overflow: hidden; /* Prevents overflow of children */
+  transition: transform 0.3s ease; /* Smooth transition for showing/hiding */
+}
+
+.chat-header {
+  background-color: #09240f; /* Changed to a brighter blue for visibility */
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px; /* Match rounded corners */
+  border-top-right-radius: 10px;
+}
+
+.chat-body {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f9f9f9; /* Light background for better contrast */
+  border-bottom: 1px solid #e0e0e0; /* Subtle divider */
+}
+
+.user-message,
+.bot-message {
+  padding: 10px;
+  border-radius: 10px; /* More rounded edges */
+  margin-bottom: 10px;
+  max-width: 75%; /* Limits the width of messages */
+}
+
+/* chat.css */
+.user-message {
+  background-color: rgba(
+    22,
+    86,
+    36,
+    0.603
+  ); /* Semi-transparent background for user messages */
+  padding: 10px;
+  color: #f9f9f9;
+  border-radius: 15px; /* Rounded corners */
+  margin-bottom: 10px;
+  max-width: 75%; /* Limits the width of messages */
+  align-self: flex-end; /* Aligns user messages to the right */
+  position: relative; /* For pseudo-element positioning */
+}
+
+.user-message::after {
+  content: "";
+  position: absolute;
+  bottom: 100%; /* Positioning above the message */
+  right: 10px; /* Adjust as necessary */
+  border-width: 10px;
+  border-style: solid;
+  border-color: rgba(9, 36, 15, 0.8) transparent transparent transparent; /* Create the arrow effect */
+}
+
+.bot-message {
+  background-color: #09240f; /* Solid background for bot messages */
+  padding: 10px;
+  color: white;
+  border-radius: 15px; /* Rounded corners */
+  margin-bottom: 10px;
+  max-width: 75%; /* Limits the width of messages */
+  align-self: flex-start; /* Aligns bot messages to the left */
+  position: relative; /* For pseudo-element positioning */
+}
+
+.bot-message::after {
+  content: "";
+  position: absolute;
+  bottom: 100%; /* Positioning above the message */
+  left: 10px; /* Adjust as necessary */
+  border-width: 10px;
+  border-style: solid;
+  border-color: #09240f transparent transparent transparent; /* Create the arrow effect */
+}
+
+#user-input {
+  width: calc(100% - 60px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* More rounded */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft inner shadow */
+}
+
+#send-button {
+  padding: 10px;
+  background-color: #09240f; /* Changed to match header */
+  color: white;
+  border: none;
+  border-radius: 10px; /* More rounded */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#send-button:hover {
+  background-color: #11421c; /* Darker shade on hover */
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #09240f; /* Consistent with other elements */
+  color: white;
+  border-radius: 50%;
+  padding: 15px; /* Increased padding for a more substantial feel */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  transition: transform 0.2s ease; /* Scale effect */
+}
+
+.chat-icon:hover {
+  transform: scale(1.1); /* Slightly scales up on hover */
+}

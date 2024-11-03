@@ -142,15 +142,15 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <div class="hero-content">
             <div class="set set1">
                 <img src="pics/sadc.svg" alt="">
-                <p>In partnership with SADC a trusted community movement that helps elevate your way of living.</p>
+                <!--<p>In partnership with SADC a trusted community movement that helps elevate your way of living.</p>-->
             </div>
             <div class="set set2">
                 <img src="pics/cot.png" alt="">
-                <p>Trusted and devoted to the livelihood of every Tshwane resident and community building. </p>
+                <!--<p>Trusted and devoted to the livelihood of every Tshwane resident and community building. </p>-->
             </div>
             <div class="set set3">
                 <img src="pics/coat.svg" alt="">
-                <p>South Africas coat of arms that keeps you warm and safe in your secured homes.</p>
+                <!--<p>South Africas coat of arms that keeps you warm and safe in your secured homes.</p>-->
             </div>
         </div>
     </section>
@@ -165,6 +165,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <p>Khanyisa is your trusted platform for effortless electricity management. With Khanyisa, you can purchase tokens, track your usage, and manage your meter settings—all in one place. Our mission is to simplify access to reliable electricity for every home, making it easier than ever to stay powered up. Experience control, convenience, and transparency with Khanyisa.</p>
     </div>
 </section>
+<?php include 'chat.php'; ?>
 
 
     <footer>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Successful</title>
+    <link rel="icon" href="pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <link rel="stylesheet" href="css/success.css"> 
 
 </head>
@@ -49,7 +50,7 @@
     <div class="gif-container">
         <img src="pics/Walking Animation.gif" alt="" style="width:550px; height: 520px;">
     </div>
-
+    <?php include 'chat.php'; ?>
     <div id="modal" style="display: none;">
         <p>Your tokens have been successfully loaded to your meter box <?php echo $meterbox_number; ?>. Thank you for using Khanyisa!</p>
         <button onclick="closeModal()">X</button>

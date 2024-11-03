@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/sign.css">
+    <link rel="icon" href="../pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <title>Sign Up</title>
 </head>
 <body>

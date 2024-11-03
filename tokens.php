@@ -44,6 +44,7 @@ function generateToken() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <title>Purchase Tokens</title>
+    <link rel="icon" href="pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <link rel="stylesheet" href="css/token.css">
     <style>
         .custom-select {
@@ -149,7 +150,7 @@ function generateToken() {
         
         <button type="submit">Buy Now</button>
     </form>
-
+    <?php include 'chat.php'; ?>
 
     <div class="transmit-options">
         <h3>Transmission Options:</h3>

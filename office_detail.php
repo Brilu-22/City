@@ -51,6 +51,7 @@ $consultants_values = generateRandomData(count($consultants));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($office_name); ?> Details</title>
     <link rel="stylesheet" href="css/detail.css">
+    <link rel="icon" href="pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -156,7 +157,7 @@ $consultants_values = generateRandomData(count($consultants));
     <div id="myChartContainer">
         <canvas id="myChart"></canvas>
     </div>
-
+    <?php include 'chat.php'; ?>
     <script>
         const menu = document.getElementById('menu');
         const closeBtn = document.getElementById('close-btn');
