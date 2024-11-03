@@ -77,7 +77,7 @@ if ($row_dept = $result_dept->fetch_assoc()) {
         .consultant-card img {
             border-radius: 50%;
             width: 100px;
-            height: 100px;
+            height: 98px;
         }
         .consultant-details {
             margin-top: 20px;
@@ -106,6 +106,8 @@ if ($row_dept = $result_dept->fetch_assoc()) {
     <div id="overlay" class="overlay"></div> 
     <div class="container">
         <div id="map"></div>
+
+        
        
         <div class="consultants-container">
             <div class="consultant-images">
@@ -122,7 +124,7 @@ if ($row_dept = $result_dept->fetch_assoc()) {
                     <?php foreach ($consultants as $consultant): ?>
                         <li>
                             <h3><?php echo htmlspecialchars($consultant['name']); ?></h3>
-                            <p>ID: <?php echo htmlspecialchars($consultant['consultant_id']); ?></p>
+                            
                             <p>Department Address: <?php echo htmlspecialchars($departments_location['address'] ?? 'N/A'); ?></p>
                             <p>Department Name: <?php echo htmlspecialchars($departments_location['dept_name'] ?? 'N/A'); ?></p>
                         </li>

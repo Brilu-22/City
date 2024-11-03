@@ -16,13 +16,14 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css"> 
+    <link rel="stylesheet" href="css/home2.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <title>Home - Meter Box Web App</title>
     <style>
         .overlay {
@@ -70,24 +71,24 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
     <div class="slider">
         <div class="slide-track">
             <h1>
-                <img src="pics/star.svg" alt="">
+                
                 <span class="text"> BUY YOUR TOKENS</span>
-                <img src="pics/star.svg" alt="">
+            
                 <span class="text">KHANYISA YOUR HOUSE</span>
-                <img src="pics/star.svg" alt="">
+                
                 <span class="text">BUY YOUR TOKENS</span>
-                <img src="pics/star.svg" alt="">
+                
                 <span class="text">Khanyisa Ikhaya Lakho</span>
-                <img src="pics/star.svg" alt="">
-                <img src="pics/star.svg" alt="">
+                
+                
                 <span class="text">BUY YOUR TOKENS</span>
-                <img src="pics/star.svg" alt="">
+                
                 <span class="text">KHANYISA YOUR HOUSE</span>
-                <img src="pics/star.svg" alt="">
+               
                 <span class="text">BUY YOUR TOKENS</span>
-                <img src="pics/star.svg" alt="">
+                
                 <span class="text">Khanyisa Ikhaya Lakho</span>
-                <img src="pics/star.svg" alt="">
+                
                 <!-- Add more sliding elements as needed -->
             </h1>
         </div>
@@ -141,15 +142,15 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <div class="hero-content">
             <div class="set set1">
                 <img src="pics/sadc.svg" alt="">
-                <p>This is the first card with some content.</p>
+                <p>In partnership with SADC a trusted community movement that helps elevate your way of living.</p>
             </div>
             <div class="set set2">
                 <img src="pics/cot.png" alt="">
-                <p>This is the second card with more content.</p>
+                <p>Trusted and devoted to the livelihood of every Tshwane resident and community building. </p>
             </div>
             <div class="set set3">
                 <img src="pics/coat.svg" alt="">
-                <p>This is the third card with even more content.</p>
+                <p>South Africas coat of arms that keeps you warm and safe in your secured homes.</p>
             </div>
         </div>
     </section>

@@ -59,7 +59,7 @@ body {
 }
 
 .menu a:hover {
-  background-color: #e7aaa3;
+  background-color: #0d3115;
 }
 
 /* Hero section styles */
@@ -194,7 +194,7 @@ body {
   font-weight: 900;
   font-style: normal;
   font-size: 40px;
-  color: #e75a48;
+  color: #0d3115;
 }
 
 .feature-card2 p {
@@ -213,12 +213,12 @@ body {
 /* Add hover effect to text */
 .feature-card2:hover h1 {
   transform: scale(1.1);
-  color: #e7aaa3; /* Change text color on hover */
+  color: #175424; /* Change text color on hover */
 }
 
 .feature-card2:hover p {
   transform: scale(1.05);
-  color: #e7aaa3; /* Change text color on hover */
+  color: #0d3115; /* Change text color on hover */
 }
 
 /* Infinite slider styles */
@@ -382,7 +382,7 @@ body {
 .hero-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #e7aaa3;
+  background-color: #175424;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -390,7 +390,7 @@ body {
 }
 
 .hero-btn:hover {
-  background-color: #e75a48;
+  background-color: #09240f;
 }
 
 .welcome-hero img {
