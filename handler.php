@@ -1,59 +1,51 @@
 <?php
-// Load Composer's autoloader if using packages
-// require '/vendor/autoload.php';
+// Make sure to include the Composer autoloader if you are using Composer
+require '/vendor/autoload.php';
 
-// Set allow_url_fopen
-ini_set('allow_url_fopen', 1);
-
-// Handle routing based on the request URI
+// Set up routing based on the request URI
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/':
-    case '/splash.html':
-        require 'splash.html';
-        break;
     case '/home':
     case '/home.php':
-        require 'home.php';
+        require 'home.php'; // This serves your home page
         break;
-    case '/login':
-    case '/login.php':
-        require 'pages/login.php';
+    case '/splash.html':
+        require 'splash.html'; // This serves your splash page
         break;
-    case '/signup':
-    case '/signup.php':
-        require 'pages/signup.php';
+    case '/pages/login':
+    case '/pages/login.php':
+        require 'pages/login.php'; // Ensure this path is correct
         break;
-    case '/chat':
-    case '/chat.php':
-        require 'chat.php';
-        break;
-    case '/office':
-    case '/office.php':
-        require 'office.php';
-        break;
-    case '/office_detail':
-    case '/office_detail.php':
-        require 'office_detail.php';
-        break;
-    case '/logout':
-    case '/logout.php':
-        require 'logout.php';
+    case '/pages/signup':
+    case '/pages/signup.php':
+        require 'pages/signup.php'; // Ensure this path is correct
         break;
     case '/successful':
     case '/successful.php':
-        require 'successful.php';
+        require 'successful.php'; // This serves your success page
         break;
     case '/tokens':
     case '/tokens.php':
-        require 'tokens.php';
+        require 'tokens.php'; // This serves your tokens page
         break;
     case '/transmit':
     case '/transmit.php':
-        require 'transmit.php';
+        require 'transmit.php'; // This serves your transmit page
+        break;
+    case '/office':
+    case '/office.php':
+        require 'office.php'; // This serves your office page
+        break;
+    case '/office_detail':
+    case '/office_detail.php':
+        require 'office_detail.php'; // This serves your office detail page
+        break;
+    case '/logout':
+    case '/logout.php':
+        require 'logout.php'; // This serves your logout page
         break;
     default:
         http_response_code(404);
-        echo '404 Not Found: ' . htmlspecialchars(@parse_url($_SERVER['REQUEST_URI'])['path']);
-        exit();
+        echo @parse_url($_SERVER['REQUEST_URI'])['path'] . ' Not Found';
+        exit('Not Found');
 }
-?>
