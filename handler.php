@@ -1,6 +1,6 @@
 <?php
 // Make sure to include the Composer autoloader if you are using Composer
-require '/vendor/autoload.php';
+//require '/vendor/autoload.php';
 
 // Set up routing based on the request URI
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
