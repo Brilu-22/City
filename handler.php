@@ -12,13 +12,13 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/splash.html':
         require 'splash.html'; // This serves your splash page
         break;
-    case '/pages/login':
-    case '/pages/login.php':
-        require 'pages/login.php'; // Ensure this path is correct
+    case '../pages/login':
+    case '../pages/login.php':
+        require '../pages/login.php'; // Ensure this path is correct
         break;
-    case '/pages/signup':
-    case '/pages/signup.php':
-        require 'pages/signup.php'; // Ensure this path is correct
+    case '../pages/signup':
+    case '../pages/signup.php':
+        require '../pages/signup.php'; // Ensure this path is correct
         break;
     case '/successful':
     case '/successful.php':
