@@ -1,6 +1,6 @@
 <?php
 // Make sure to include the Composer autoloader if you are using Composer
-//require '/vendor/autoload.php';
+// require '/vendor/autoload.php';
 
 // Set up routing based on the request URI
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
@@ -12,13 +12,25 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/splash.html':
         require 'splash.html'; // This serves your splash page
         break;
-    case '../pages/login':
-    case '../pages/login.php':
-        require '../pages/login.php'; // Ensure this path is correct
+    case '/login':
+    case '/login.php':
+        if (file_exists('pages/login.php')) {
+            require 'pages/login.php'; // Correct path to login.php
+        } else {
+            http_response_code(404);
+            echo 'Login page not found.';
+            exit('Not Found');
+        }
         break;
-    case '../pages/signup':
-    case '../pages/signup.php':
-        require '../pages/signup.php'; // Ensure this path is correct
+    case '/signup':
+    case '/signup.php':
+        if (file_exists('pages/signup.php')) {
+            require 'pages/signup.php'; // Correct path to signup.php
+        } else {
+            http_response_code(404);
+            echo 'Signup page not found.';
+            exit('Not Found');
+        }
         break;
     case '/successful':
     case '/successful.php':
