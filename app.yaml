@@ -20,5 +20,5 @@ env_variables:
   # Replace these with your actual database connection details
   CLOUDSQL_USER: root
   CLOUDSQL_DB: meter_box_app # Ensure this matches your Cloud SQL database name
-  CLOUDSQL_PASSWORD: Lebo@2024
+  CLOUDSQL_PASSWORD: |6N06|M_ZpIbfz<I 
   CLOUDSQL_DSN: /cloudsql/tonal-premise-440712-s2:us-central1:my-khanyisa-instance
