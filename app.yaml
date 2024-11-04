@@ -1,9 +1,10 @@
 runtime: php73 # Specify the PHP runtime version
-env: standard # Use standard environment
 
 # Document root where your main application files are located
 runtime_config:
   document_root: .
+
+entrypoint: serve handler.php # Entry point for your application
 
 handlers:
   # Serve static files (CSS, images, JS)
@@ -14,11 +15,10 @@ handlers:
   # All other requests are handled by handler.php
   - url: /.*
     script: auto
-    entrypoint: serve handler.php
 
 env_variables:
   # Replace these with your actual database connection details
   CLOUDSQL_USER: root
-  CLOUDSQL_DB: meter_box_app
+  CLOUDSQL_DB: meter_box_app # Ensure this matches your Cloud SQL database name
   CLOUDSQL_PASSWORD: Lebo@2024
   CLOUDSQL_DSN: /cloudsql/tonal-premise-440712-s2:us-central1:my-khanyisa-instance
