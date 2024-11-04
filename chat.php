@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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' 
+                    'Authorization': 'Bearer ' 
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
