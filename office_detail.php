@@ -50,7 +50,7 @@ $consultants_values = generateRandomData(count($consultants));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($office_name); ?> Details</title>
-    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/details.css">
     <link rel="icon" href="pics/MeterBox.png" type="favicon" style="width:800px; height:800px;">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>

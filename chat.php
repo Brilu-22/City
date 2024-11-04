@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Initialize chat history
 if (!isset($_SESSION['chat_history'])) {
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/chats.css">
 </head>
 <body>
 

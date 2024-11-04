@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; // or your server name
-$username = "root"; // your database username
-$password = " "; // your database password
-$dbname = "meter_box_app"; // your database name
+$servername = "localhost"; 
+$username = "root"; 
+$password = " "; 
+$dbname = "meter_box_app"; 
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

@@ -16,7 +16,7 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home2.css"> 
+    <link rel="stylesheet" href="css/home.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,14 +142,17 @@ $userName = isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; // Fallback t
         <div class="hero-content">
             <div class="set set1">
                 <img src="pics/sadc.svg" alt="">
+                <p>In partnership with SADC</p>
                 <!--<p>In partnership with SADC a trusted community movement that helps elevate your way of living.</p>-->
             </div>
             <div class="set set2">
                 <img src="pics/cot.png" alt="">
+                <P>Turn your house into a Home.</P>
                 <!--<p>Trusted and devoted to the livelihood of every Tshwane resident and community building. </p>-->
             </div>
             <div class="set set3">
                 <img src="pics/coat.svg" alt="">
+                <p>Let Us protect you.</p>
                 <!--<p>South Africas coat of arms that keeps you warm and safe in your secured homes.</p>-->
             </div>
         </div>
