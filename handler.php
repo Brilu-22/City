@@ -1,6 +1,6 @@
 <?php
 // Make sure to include the Composer autoloader if you are using Composer
-//require '/vendor/autoload.php';
+// require '/vendor/autoload.php';
 
 // Set up routing based on the request URI
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
@@ -14,11 +14,11 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         break;
     case '/login':
     case '/login.php':
-        require 'pages/login.php'; // Ensure this path is correct
+        require 'pages/login.php'; // Adjusted path to your login page
         break;
     case '/signup':
     case '/signup.php':
-        require 'pages/signup.php'; // Ensure this path is correct
+        require 'pages/signup.php'; // Adjusted path to your signup page
         break;
     case '/successful':
     case '/successful.php':
