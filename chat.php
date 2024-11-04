@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'http' => [
                 'header' => [
                     "Content-Type: application/json",
-                    "Authorization: Bearer $api_key"
+                    "Authorization: "
                 ],
                 'method' => 'POST',
                 'content' => json_encode($data),
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' 
+                    'Authorization': ' ' 
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
