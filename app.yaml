@@ -1,4 +1,4 @@
-runtime: php80 # Specify the PHP runtime version
+runtime: php82 # Specify the PHP runtime version
 
 # Document root where your main application files are located
 runtime_config:
