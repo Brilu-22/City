@@ -3,12 +3,13 @@
 $cloudSqlUser = getenv('CLOUDSQL_USER');
 $cloudSqlPassword = getenv('CLOUDSQL_PASSWORD');
 $cloudSqlDatabase = getenv('CLOUDSQL_DB');
-$cloudSqlDsn = getenv('CLOUDSQL_DSN');
+
+// Use the public IP address for the connection
+$cloudSqlDsn = "mysql:host=34.56.182.207;dbname={$cloudSqlDatabase}";
 
 // Create a new PDO instance
 try {
-    // Use the Cloud SQL connection string to connect to the database
-    $pdo = new PDO("mysql:unix_socket={$cloudSqlDsn};dbname={$cloudSqlDatabase}", $cloudSqlUser, $cloudSqlPassword);
+    $pdo = new PDO($cloudSqlDsn, $cloudSqlUser, $cloudSqlPassword);
     
     // Set the PDO error mode to exception for easier debugging
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
