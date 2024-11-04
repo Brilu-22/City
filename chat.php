@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['chat_history'][] = ['user' => $user_message];
 
         // Call ChatGPT API
-        $api_key = ''; 
+        $api_key = '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'; 
         $api_url = 'https://api.openai.com/v1/chat/completions';
 
         $data = [
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'http' => [
                 'header' => [
                     "Content-Type: application/json",
-                    "Authorization: "
+                    "Authorization: Bearer $api_key"
                 ],
                 'method' => 'POST',
                 'content' => json_encode($data),
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': ' ' 
+                    'Authorization': 'Bearer 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' 
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
