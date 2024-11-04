@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['name'] = $user['name'];
-            header("Location: ../home.php"); // Redirect to home page after login
+            header("Location: /home.php"); // Redirect to home page after login
             exit();
         } else {
             echo "Invalid email or password.";
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <header>
-            <img src="../pics/Klogo.svg" alt="DOGIES Logo" class="logo" style="width: 90px;">
+            <img src="../pics/Klogo.svg" alt="" class="logo" style="width: 90px;">
         </header>
         <div class="signup-box">
             <div class="form-container">
