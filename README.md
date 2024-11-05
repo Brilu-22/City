@@ -141,7 +141,7 @@ The concept behind Khanyisa is to create an easy-to-use platform for purchasing 
 
 ## Demonstration
 
-[Link To Demonstration Video](https://drive.google.com/drive/folders/your_demo_link)
+[Link To Demonstration Video](https://youtu.be/NmKVbCycch8)
 
 ### License
 
