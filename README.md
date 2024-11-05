@@ -1,6 +1,6 @@
-# Meter Box App
+# Welcome to Khanyisa!
 
-![ClearView Header Image](./pics/loader.png)
+![ClearView Header Image](./pics/huis.png)
 
 ---
 
@@ -18,7 +18,7 @@ Khanyisa is a meter box application designed to simplify the process of purchasi
 [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![GSAP](https://img.shields.io/badge/GSAP-88CCFF?style=for-the-badge&logo=gsap&logoColor=black)](https://greensock.com/gsap/)
 
-![Khanyisa Login Screenshot](./uploads/your_login_image.png)
+![Khanyisa Login Screenshot](./pics/login.png)
 
 ## How To Install
 
@@ -63,25 +63,25 @@ Once opened, check the structure of the folders.
 
 The concept behind Khanyisa is to create an easy-to-use platform for purchasing electricity tokens while providing users with access to necessary support and information through an intuitive interface and interactive features.
 
-![Khanyisa Concept](./uploads/your_concept_image.png)
+![Khanyisa Concept](./pics/Offices.png)
 
 ## UI Design
 
 ### Splash Screen (PreLoader)
 
-![Splash Screen UI Design](./uploads/your_splash_image.png)
+![Splash Screen UI Design](./pics/loader.png)
 
 ### Login
 
-![Login UI Design](./uploads/your_login_image.png)
+![Login UI Design](./pics/login.png)
 
 ### Homepage
 
-![HomePage UI Design](./uploads/your_homepage_image.png)
+![HomePage UI Design](./pics/home.png)
 
 ### Office Page
 
-![Office Page UI Design](./uploads/your_office_image.png)
+![Office Page UI Design](./pics/consult.png)
 
 ## Development Process
 
@@ -113,21 +113,21 @@ The concept behind Khanyisa is to create an easy-to-use platform for purchasing 
 
 ## Mockups
 
-### Profile Mockup
+### Sign up Mockup
 
-![Profile Mockup](./uploads/your_profile_mockup.png)
+![Profile Mockup](./pics/Msignup.png)
 
-### Community Page Mockup
+### Tokens page Mockup
 
-![Community Mockup](./uploads/your_community_mockup.png)
+![Community Mockup](./pics/Mtokens.png)
 
-### Individual Post Page Mockup
+### Splash Page Mockup
 
-![Individual Post Mockup](./uploads/your_individual_post_mockup.png)
+![Individual Post Mockup](./pics/Mloader.jpg)
 
-### Home Page Mockup
+### Stats Home Page Mockup
 
-![Home Page Mockup](./uploads/your_home_page_mockup.png)
+![Home Page Mockup](./pics/stats.png)
 
 ## Demonstration
 
