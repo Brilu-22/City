@@ -129,6 +129,16 @@ The concept behind Khanyisa is to create an easy-to-use platform for purchasing 
 
 ![Home Page Mockup](./pics/stats.png)
 
+# PDF Documents
+
+## Proposal
+
+[Link to PDF Document](<./pdf/Lebogang%20Hlongwane%20231214%20DV200%20_%20Proposal%20%20(1).pdf>)
+
+## Progress Milestone
+
+[Link to PDF Document](<./pdf/Lebogang%20Hlongwane%20231214%20DV200%20Progress%20Check%20(1).pdf>)
+
 ## Demonstration
 
 [Link To Demonstration Video](https://drive.google.com/drive/folders/your_demo_link)
